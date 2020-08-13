@@ -1,0 +1,335 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Integrations &mdash; Alertflex 0.7 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Copyright notices" href="notices.html" />
+    <link rel="prev" title="Configuration of Altprobe" href="config_altprobe.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Alertflex
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                open-source version
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install_cnode.html">Installation of Cnode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config_cnode.html">Configuration of Cnode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install_altprobe.html">Installation of Altprobe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config_altprobe.html">Configuration of Altprobe</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Integrations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#open-cybersecurity-alliance-ecosystem-stix-shifter">Open Cybersecurity Alliance ecosystem (STIX-shifter)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#send-alerts-and-netflow-to-graylog">Send alerts and Netflow to Graylog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#send-alerts-and-netflow-to-elasticstack-open-distro-via-logstash">Send alerts and Netflow to ElasticStack/Open Distro via Logstash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#enable-receive-metrics-from-alertflex-in-prometheus-grafana">Enable receive metrics from Alertflex in Prometheus/Grafana</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="notices.html">Copyright notices</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Alertflex</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Integrations</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/pages/integration.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="integrations">
+<h1>Integrations<a class="headerlink" href="#integrations" title="Permalink to this headline">¶</a></h1>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="section" id="open-cybersecurity-alliance-ecosystem-stix-shifter">
+<h2>Open Cybersecurity Alliance ecosystem (STIX-shifter)<a class="headerlink" href="#open-cybersecurity-alliance-ecosystem-stix-shifter" title="Permalink to this headline">¶</a></h2>
+<p>Alertflex has an adapter for STIX-shifter to interact with Alertflex controller via REST API. It translates STIX pattern to pseudo SQL requests and transmits to the controller to get information about IDS alerts in STIX objects format.</p>
+<p>Below several examples using Alertflex stix-shifter adapter:</p>
+<ul class="simple">
+<li><p>Check availability of Alertflex REST interface (return code: <code class="docutils literal notranslate"><span class="pre">HTTP/1.1</span> <span class="pre">200</span> <span class="pre">OK</span></code>)</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">k</span> <span class="o">-</span><span class="n">v</span> <span class="n">GET</span> <span class="o">-</span><span class="n">u</span> <span class="n">admin</span><span class="p">:</span><span class="n">XXXXXXX</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="mf">192.168</span><span class="o">.</span><span class="mf">1.10</span><span class="p">:</span><span class="mi">8181</span><span class="o">/</span><span class="n">alertflex</span><span class="o">-</span><span class="n">ctrl</span><span class="o">/</span><span class="n">rest</span><span class="o">/</span><span class="n">stix</span><span class="o">-</span><span class="n">alerts</span><span class="o">/</span><span class="n">status</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Ping service from STIX-shifter</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">main</span><span class="o">.</span><span class="n">py</span> <span class="n">transmit</span> <span class="n">alertflex</span>
+<span class="s1">&#39;{&quot;host&quot;:&quot;192.168.1.10&quot;, &quot;port&quot;:&quot;8181&quot;}&#39;</span>
+<span class="s1">&#39;{&quot;auth&quot;: {&quot;username&quot;: &quot;admin&quot;,&quot;password&quot;: &quot;XXXXXXXX&quot;}}&#39;</span>
+<span class="n">ping</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Get info about alerts where a certain file’s md5 hash is presented</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">main</span><span class="o">.</span><span class="n">py</span> <span class="n">execute</span> <span class="n">alertflex</span> <span class="n">alertflex</span>
+<span class="s1">&#39;{&quot;type&quot;: &quot;identity&quot;, &quot;id&quot;: &quot;identity--3532c56d-ea72-48be-a2ad-1a53f4c9c6d3&quot;, &quot;name&quot;: &quot;Alertflex&quot;, &quot;identity_class&quot;: &quot;events&quot;}&#39;</span>
+<span class="s1">&#39;{&quot;host&quot;:&quot;192.168.1.10&quot;, &quot;port&quot;:&quot;8181&quot;}&#39;</span> <span class="s1">&#39;{&quot;auth&quot;: {&quot;username&quot;: &quot;admin&quot;,&quot;password&quot;: &quot;XXXXXXX&quot;}}&#39;</span>
+<span class="s2">&quot;[file:hashes.MD5 = &#39;02d2a1d8b353ba2bf59ca381f1836ebd&#39;]&quot;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Get info about alerts with type “HOST” raised during a fixed interval of time</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">main</span><span class="o">.</span><span class="n">py</span> <span class="n">execute</span> <span class="n">alertflex</span> <span class="n">alertflex</span>
+<span class="s1">&#39;{&quot;type&quot;: &quot;identity&quot;, &quot;id&quot;: &quot;identity--3532c56d-ea72-48be-a2ad-1a53f4c9c6d3&quot;, &quot;name&quot;: &quot;Alertflex&quot;, &quot;identity_class&quot;: &quot;events&quot;}&#39;</span>
+<span class="s1">&#39;{&quot;host&quot;:&quot;192.168.1.10&quot;, &quot;port&quot;:&quot;8181&quot;}&#39;</span> <span class="s1">&#39;{&quot;auth&quot;: {&quot;username&quot;: &quot;admin&quot;,&quot;password&quot;: &quot;XXXXXXX&quot;}}&#39;</span>
+<span class="s2">&quot;[x_org_alertflex:type = &#39;HOST&#39;] START t&#39;2020-06-09T00:00:00Z&#39; STOP t&#39;2020-06-09T20:11:11Z&#39;&quot;</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="send-alerts-and-netflow-to-graylog">
+<h2>Send alerts and Netflow to Graylog<a class="headerlink" href="#send-alerts-and-netflow-to-graylog" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>In Alertflex console select “Settings/Log server” and add IP/host address and port of Graylog server. Select checkbox <code class="docutils literal notranslate"><span class="pre">send</span> <span class="pre">Netflow</span></code> if you want send Netflow records from Suricata</p></li>
+</ul>
+<img alt="../_images/graylog-config.png" src="../_images/graylog-config.png" />
+<ul class="simple">
+<li><p>In Graylog console select “System/Inputs” and add <code class="docutils literal notranslate"><span class="pre">GELF</span> <span class="pre">UDP</span></code> input</p></li>
+</ul>
+<img alt="../_images/graylog-input.png" src="../_images/graylog-input.png" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="send-alerts-and-netflow-to-elasticstack-open-distro-via-logstash">
+<h2>Send alerts and Netflow to ElasticStack/Open Distro via Logstash<a class="headerlink" href="#send-alerts-and-netflow-to-elasticstack-open-distro-via-logstash" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Configure LogStash receive events from Alertflex via <code class="docutils literal notranslate"><span class="pre">GELF</span> <span class="pre">UDP</span></code>:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">input</span> <span class="p">{</span>
+        <span class="n">gelf</span> <span class="p">{</span>
+                <span class="n">host</span> <span class="o">=&gt;</span> <span class="s2">&quot;0.0.0.0&quot;</span>
+                <span class="nb">type</span> <span class="o">=&gt;</span> <span class="s2">&quot;alertflex&quot;</span>
+        <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">output</span> <span class="p">{</span>
+        <span class="n">elasticsearch</span> <span class="p">{</span>
+                <span class="n">hosts</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s2">&quot;https://localhost:9200&quot;</span><span class="p">]</span>
+                <span class="n">index</span> <span class="o">=&gt;</span> <span class="s2">&quot;logstash&quot;</span>
+                <span class="n">user</span> <span class="o">=&gt;</span> <span class="s2">&quot;logstash&quot;</span>
+                <span class="n">password</span> <span class="o">=&gt;</span> <span class="s2">&quot;logstash&quot;</span>
+                <span class="n">ssl_certificate_verification</span> <span class="o">=&gt;</span> <span class="n">false</span>
+                <span class="n">ilm_enabled</span> <span class="o">=&gt;</span> <span class="n">false</span>
+        <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="enable-receive-metrics-from-alertflex-in-prometheus-grafana">
+<h2>Enable receive metrics from Alertflex in Prometheus/Grafana<a class="headerlink" href="#enable-receive-metrics-from-alertflex-in-prometheus-grafana" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>In Alertflex console open “Settings/Parameters” web-form and select checkbox <code class="docutils literal notranslate"><span class="pre">Enable</span> <span class="pre">REST</span> <span class="pre">interface</span> <span class="pre">for</span> <span class="pre">metrics</span></code></p></li>
+</ul>
+<img alt="../_images/prometheus-config.png" src="../_images/prometheus-config.png" />
+<ul class="simple">
+<li><p>Configure Prometheus to do requests of metrics from Alertflex, edit the file <code class="docutils literal notranslate"><span class="pre">/etc/prometheus/prometheus.yml</span></code></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">job_name</span><span class="p">:</span> <span class="s1">&#39;alertflex&#39;</span>
+        <span class="n">metrics_path</span><span class="p">:</span> <span class="o">/</span><span class="n">alertflex</span><span class="o">-</span><span class="n">ctrl</span><span class="o">/</span><span class="n">rest</span><span class="o">/</span><span class="n">metrics</span>
+        <span class="n">static_configs</span><span class="p">:</span>
+        <span class="o">-</span> <span class="n">targets</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;192.168.1.10:8080&#39;</span><span class="p">]</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="notices.html" class="btn btn-neutral float-right" title="Copyright notices" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="config_altprobe.html" class="btn btn-neutral float-left" title="Configuration of Altprobe" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, alertflex.org
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

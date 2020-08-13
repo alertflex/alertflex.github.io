@@ -1,0 +1,184 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+  
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-77081853-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+        gtag('config', 'UA-77081853-1');
+	</script>
+	
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-KLL949K');</script>
+	<!-- End Google Tag Manager -->
+	
+    <meta charset="utf-8"/>
+    <title>CSM solution</title>
+	
+	<meta name="description" content="open source, EDR, SOAR, continuous security monitoring">
+	
+	<meta name="keywords" content="EDR, open source, DevSecOps, Suricata, Wazuh, OSSEC, Falco, MISP, Cuckoo, Graylog, IDS, free SIEM, free EDR, free SOAR, Snort, Web Application Firewall, Host IDS, Network IDS, WAF, HIDS, NIDS, OSSIM">
+	
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900' rel='stylesheet' type='text/css'>
+	<link href="../css/bootstrap.min.css" rel="stylesheet"/>
+	<link href="../css/font-awesome.min.css" rel="stylesheet"/>
+	<link href="../css/style.css" rel="stylesheet"/>
+	
+	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/styles/dracula.min.css">
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js"></script>
+	<script type='text/javascript'>
+		hljs.initHighlightingOnLoad();
+		$(document).ready(function() {
+			$('.codeBlock').each(function(i, e) {hljs.highlightBlock(e)});
+		});
+	</script>
+		
+	<link rel="icon" href="../img/box.ico"/>
+    <link rel="shortcut icon" href="../img/box.ico"/>
+  </head>
+  <body>
+    
+    <nav class="navbar navbar-default navbar-fixed-top" >
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="../index.html">
+					<span style="display: inline-block;">ALERTFLEX</span>
+				</a>
+			</div> <!-- /.navbar-header -->
+
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right" >
+					<li><a href="../blog.html"><span class="fa fa-rss"></span> BLOG</a></li>
+					<li><a href="../index.html#contacts"><span class="fa fa-envelope"></span> CONTACT</a></li>
+					<li><a href="../index.html#demo"><span class="fa fa-film"></span> DEMO</a></li>
+					<li><a href="../doc/index.html"><span class="fa fa-book"></span> DOCUMENTATION</a></li>
+					<li><a href="../index.html#download"><span class="fa fa-download"></span> DOWNLOAD</a></li>
+					<li><a href="../index.html#features"><span class="fa fa-shopping-cart"></span> FEATURES</a></li>
+					<li><a href="../index.html#integrations"><span class="fa fa-th-large"></span> INTEGRATIONS</a></li>
+				</ul>
+			</div> <!-- /.navbar-collapse -->
+		</div> <!-- /.container -->
+    </nav> <!-- /.navbar -->
+	
+	<div class="container" style="margin-top:80px;" >
+	
+		<div class="panel panel-default">
+		
+			<div class="panel-heading"> <h2>In this article will be considered automated analysis on-premise files in VMray cloud service.</h2></div>
+			
+			<div class="panel-body">
+			
+				<div class="media">
+				
+					<div class="row">
+						<div class="col-sm-4">
+							<a href="#">
+								<img src="../img/blogs/vmray_cloud.png" class="img-responsive">
+							</a>
+						</div>
+						<div class="col-sm-8 article">    
+							<p>The Alertflex open-source project provides time-based automation of file delivery to malware analysis sandbox and continuously monitoring the result of the analysis.</p>
+							<h3 class="text-left">Objective</h3>
+							<p>Describer the process of configuration Alertflex and to be sure that Alertflex downloads files from the remote host via SFTP protocol, send it to VMRay cloud service for analysis via REST,  creates an internal sandbox task, and periodically checks the status of an analyzed file in the cloud sandbox. If the file is determined as suspicious or malicious, alert with severity 2 (major) or 3 (critical) in Alertflex web console should be raised.</p>
+						</div>
+						
+						<div  class="col-sm-12 article" style="margin-top:20px;"> 
+							<h3 class="text-left">Pre-Conditions</h3>
+							<p>Note: Alertflex solution is provided under Apache-2.0 License and AGPL-3.0 License, please read these licenses before starting to work with Alertflex.</p>
+							<p>You need two computers/VM file server and  Alertflex management console, an active VMRay cloud account, two sample EXE files normal and suspicious. Below present a network diagram of use case:</p>
+							<a href="#" >
+								<img src="../img/blogs/blog01_netdiag.jpg" class="pull-left img-responsive" style="max-width: 40%; height: auto;">
+							</a>
+						</div>
+						
+						<div class="col-sm-12 article" style="margin-top:10px;"> 	
+							
+							<h3 class="text-left">Setup an Alertflex management console</h3>
+							
+							<p>1) Open panel <strong>/settings/integrations</strong> of Alertflex management console and configure VMRay cloud account.</p>
+							<a href="#" >
+								<img src="../img/blogs/blog01_integrations.jpg" class="pull-left img-responsive" >
+							</a>
+							
+							<p>2) Open panel <strong>/settings/credentials/add</strong> of Alerflex management console and configure credential account for SSH access to file server host.</p>
+							<a href="#" >
+								<img src="../img/blogs/blog01_credential.jpg" class="pull-left img-responsive" >
+							</a>
+							
+							<p>3) Open panel <strong>/settings/host/add</strong> of Alertflex management console and configure host account for SSH access to file server host.</p>
+							<a href="#" >
+								<img src="../img/blogs/blog01_host.jpg" class="pull-left img-responsive" >
+							</a>
+							
+							<p>4) Open panel <strong>/jobs/sandbox/add</strong> of Alertflex management console and configure sandbox job for file server host</p>
+							<p> Note: parameter <strong>Time period</strong> is given in seconds for periodically check of folder <strong>/nsmpcap/</strong> with observed files </p>
+														
+							<a href="#" >
+								<img src="../img/blogs/blog01_job.jpg" class="pull-left img-responsive" >
+							</a>
+							
+							<div class="EmptyBox10"></div>
+							
+							<h3 class="text-left" >Performing test</h3>
+							
+							<p>1) Copy a test file to folder <strong>/nsmpcap/</strong>.</p>
+							<div class="text-left codeBlock" >
+								<pre><code class="bash">
+root@host:/nsmpcap# pwd
+/nsmpcap
+root@host:/nsmpcap# cp /var/www/putty.exe ./
+root@host:/nsmpcap# ls
+putty.exe
+root@host:/nsmpcap#
+
+								</code></pre>
+							</div>
+							
+							<p>2) After expiration of <strong>Time period</strong> defined in sandbox job, please check the folder <strong>/nsmpcap/</strong> to be sure that the above file was sent to the sandbox and deleted in this folder by Alertflex management console.</p>
+							<div class="EmptyBox10"></div>
+							<p>3) Open panel <strong>/jobs/reports/sandbox</strong> of Alertflex management console and check status of sandbox task.</p>
+							<a href="#" >
+								<img src="../img/blogs/blog01_task_progress.jpg" class="pull-left img-responsive" >
+							</a>
+							<p> Note: If parameter <strong>status</strong> is equals to <strong>progress</strong> VMRay service still analysis the file, wait until status will be <strong>reported</strong>.</p>
+							<a href="#" >
+								<img src="../img/blogs/blog01_task_reported.jpg" class="pull-left img-responsive" >
+							</a>
+							<p>4) If the status of the task is <strong>reported</strong> please check the alert dashboard of Alertflex console, there is an alert about file analysis must be present.</p>
+							<a href="#" >
+								<img src="../img/blogs/blog01_alert.jpg" class="pull-left img-responsive" >
+							</a>
+							<p>5) Open panel of VMRay Web UI and check sandbox report.</p>
+							<a href="#" >
+								<img src="../img/blogs/blog01_vmray_task.jpg" class="pull-left img-responsive" >
+							</a>
+							<a href="#" >
+								<img src="../img/blogs/blog01_vmray_report.jpg" class="pull-left img-responsive" >
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	<script src="../js/jquery.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	
+	    
+  </body>
+</html>

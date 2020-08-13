@@ -1,0 +1,272 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+  
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-77081853-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+        gtag('config', 'UA-77081853-1');
+	</script>
+	
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-KLL949K');</script>
+	<!-- End Google Tag Manager -->
+	
+    <meta charset="utf-8"/>
+    <title>CSM solution</title>
+	
+	<meta name="description" content="open source, EDR, SOAR, continuous security monitoring">
+	
+	<meta name="keywords" content="EDR, open source, DevSecOps, Suricata, Wazuh, OSSEC, Falco, MISP, Cuckoo, Graylog, IDS, free EDR, free SOAR, Snort, Web Application Firewall, Host IDS, Network IDS, WAF, HIDS, NIDS, OSSIM">
+	
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900' rel='stylesheet' type='text/css'>
+	<link href="../css/bootstrap.min.css" rel="stylesheet"/>
+	<link href="../css/font-awesome.min.css" rel="stylesheet"/>
+	<link href="../css/style.css" rel="stylesheet"/>
+	
+	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/styles/dracula.min.css">
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js"></script>
+	<script type='text/javascript'>
+		hljs.initHighlightingOnLoad();
+		$(document).ready(function() {
+			$('.codeBlock').each(function(i, e) {hljs.highlightBlock(e)});
+		});
+	</script>
+		
+	<link rel="icon" href="../img/box.ico"/>
+    <link rel="shortcut icon" href="../img/box.ico"/>
+  </head>
+  <body>
+    
+    <nav class="navbar navbar-default navbar-fixed-top" >
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="../index.html">
+					<span style="display: inline-block;">ALERTFLEX</span>
+				</a>
+			</div> <!-- /.navbar-header -->
+
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right" >
+					<li><a href="../blog.html"><span class="fa fa-rss"></span> BLOG</a></li>
+					<li><a href="../index.html#contacts"><span class="fa fa-envelope"></span> CONTACT</a></li>
+					<li><a href="../index.html#demo"><span class="fa fa-film"></span> DEMO</a></li>
+					<li><a href="../doc/index.html"><span class="fa fa-book"></span> DOCUMENTATION</a></li>
+					<li><a href="../index.html#download"><span class="fa fa-download"></span> DOWNLOAD</a></li>
+					<li><a href="../index.html#features"><span class="fa fa-shopping-cart"></span> FEATURES</a></li>
+					<li><a href="../index.html#integrations"><span class="fa fa-th-large"></span> INTEGRATIONS</a></li>
+				</ul>
+			</div> <!-- /.navbar-collapse -->
+		</div> <!-- /.container -->
+    </nav> <!-- /.navbar -->
+	
+	<div class="container" style="margin-top:80px;" >
+	
+		<div class="panel panel-default">
+		
+			<div class="panel-heading"> <h2>In this article will be considered integration between Suricata IDS and Cuckoo sandbox.</h2></div>
+			
+			<div class="panel-body">
+			
+				<div class="media">
+				
+					<div class="row">
+						<div class="col-sm-4">
+							<a href="#">
+								<img src="../img/blogs/suricata_cuckoo.png" class="img-responsive">
+							</a>
+						</div>
+						<div class="col-sm-8 article">    
+							<p>The Alertflex open-source project can integrate the Suricata NIDS and several types of Malware Analysis Sandboxes ( Cuckoo, Falco, VMRay) in one solution to allow you to automatically check files extracted by Suricata IDS in Sandbox. Alertflex periodically accesses to files via SFTP protocol and loaded them into Sandbox according to predefined parameters/filters. In case, sandbox determinates suspicious file, Alertflex raises an alert.</p>
+							<h3 class="text-left">Objective</h3>
+							<p>Describer process of configuration Alertflex and to be sure that Alertflex sends file extracted by Suricata IDS to Cuckoo sandbox, creates an internal sandbox task, and periodically checks the status of an analyzed file in the cloud sandbox. If the file is determined as suspicious or malicious, alert with severity 2 (major) or 3 (critical) in Alertflex web console should be raised.</p>
+						</div>
+						
+						<div  class="col-sm-12 article" style="margin-top:20px;"> 
+							<h3 class="text-left">Pre-Conditions</h3>
+							<p>Note: Alertflex solution is provided under Apache-2.0 License and AGPL-3.0 License, please read these licenses before starting to work with Alertflex.</p>
+							<p>You need computers/VM with installed Suricata IDS, Cuckoo sandbox and Alertflex management console. Possibility mirroring of network traffic to Suricata via a switch or other devices and two sample EXE files normal and suspicious. Below present a network diagram of use case:</p>
+							<a href="#" >
+								<img src="../img/blogs/blog02_netdiag.jpg" class="pull-left img-responsive" style="max-width: 40%; height: auto;">
+							</a>
+						</div>
+						
+						<div class="col-sm-12 article" style="margin-top:10px;"> 	
+							
+							<h3 class="text-left">Setup Suricata IDS</h3>
+							
+							<p>1) Create file <strong>local.rules</strong> with Suricata IDS rules for extraction from network traffic files with extension EXE (see examples of rules below)</p>
+							<div class="text-left codeBlock">
+								<pre><code class="misc">
+alert http any any -> any any (msg:"FILE exe detected"; filemagic:"executable for MS Windows"; filestore; sid:3; rev:1;)
+alert http any any -> any any (msg:"FILE EXE file claimed"; fileext:"exe"; filestore; sid:4; rev:1;)
+								</code></pre>
+							</div>
+							
+							<p>2) Check parameters in the config file of Suricata <strong>/etc/suricata/suricata.yaml</strong> according to values listed below</p>
+						
+							<div class="text-left codeBlock" >
+								<pre><code class="yaml">
+outputs:
+
+  - files:
+      force-magic: yes   # force logging magic on all logged files
+      # force logging of checksums, available hash functions are md5,
+      # sha1 and sha256
+      force-hash: [md5,sha256]
+  
+  - file-store:
+      version: 2
+      enabled: yes
+      dir: files
+      write-fileinfo: yes
+      stream-depth: 0
+      max-open-files: 1000
+	  
+default-rule-path: /var/lib/suricata/rules
+rule-files:
+  - suricata.rules
+  - local.rules
+								</code></pre>
+							</div>
+							
+							<h3 class="text-left">Setup an Alertflex management console</h3>
+							
+							<p>1) Open panel <strong>/settings/integrations</strong> of Alertflex management console and configure Cuckoo sandbox.</p>
+							<a href="#" >
+								<img src="../img/blogs/blog02_integrations.jpg" class="pull-left img-responsive" >
+							</a>
+							
+							<p>2) Open panel <strong>/settings/credentials/add</strong> of Alerflex management console and configure credential account for SSH access to Suricata IDS host.</p>
+							<a href="#" >
+								<img src="../img/blogs/blog01_credential.jpg" class="pull-left img-responsive" >
+							</a>
+							
+							<p>3) Open panel <strong>/settings/host/add</strong> of Alertflex management console and configure host account for SSH access to Suricata IDS host.</p>
+							<a href="#" >
+								<img src="../img/blogs/blog01_host.jpg" class="pull-left img-responsive" >
+							</a>
+							
+							<p>4) Open panel <strong>/jobs/sandbox/add</strong> of Alertflex management console and configure sandbox job for Suricata host</p>
+							<p> Note: parameter <strong>Time period</strong> is given in seconds for periodically check Suricata extracted files folder</p>
+														
+							<a href="#" >
+								<img src="../img/blogs/blog02_job.jpg" class="pull-left img-responsive" >
+							</a>
+							
+							<div class="EmptyBox10"></div>
+							
+							<h3 class="text-left" >Performing integration test</h3>
+							
+							<p>1) Transmit a file via HTTP protocol inside of the network segment that is monitored by Suricata. Check that Suricata extracts the file to folder <strong>/var/log/suricata/files</strong>. There is should be two files - extracted file itself and Suricata notification file with info about the transmitted file.</p>
+							<div class="text-left codeBlock" >
+								<pre><code class="bash">
+cd /var/log/suricata/files
+find ./ -name "*"
+
+./41
+./41/4156606e2e003b2a3b3a4998b26c218af8ef30731ee4f5390419bc5b3b0e8acf
+./41/4156606e2e003b2a3b3a4998b26c218af8ef30731ee4f5390419bc5b3b0e8acf.1596924012.1.json
+./86
+
+cat ./41/4156606e2e003b2a3b3a4998b26c218af8ef30731ee4f5390419bc5b3b0e8acf.1596924012.1.json
+								</code></pre>
+							</div>
+							<p></p>
+							<div class="text-left codeBlock" >
+								<pre><code class="json">
+{
+"timestamp":"2020-08-09T01:00:12.448191+0300",
+"http":{
+"url":"/putty.exe",
+"hostname":"192.168.1.10",
+"protocol":"HTTP/1.1",
+"http_user_agent":"Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36",
+"http_refer":"http://192.168.1.10/",
+"http_content_type":"application/x-msdos-program",
+"length":1173000,
+"http_method":"GET",
+"status":200
+},
+"src_ip":"192.168.1.10",
+"proto":"TCP",
+"dest_port":56952,
+"event_type":"fileinfo",
+"app_proto":"http",
+"flow_id":2024944479702839,
+"dest_ip":"192.168.1.2",
+"in_iface":"eth0",
+"src_port":80,
+"fileinfo":{
+"gaps":false,
+"filename":"/putty.exe",
+"state":"CLOSED",
+"sid":[
+4
+],
+"magic":"PE32+ executable (GUI) x86-64, for MS Windows",
+"md5":"7e13b2d92d7490b8b3a1f10edfe2f410",
+"sha256":"4156606e2e003b2a3b3a4998b26c218af8ef30731ee4f5390419bc5b3b0e8acf",
+"stored":true,
+"size":1173000,
+"tx_id":4
+}
+}
+								</code></pre>
+							</div>
+							
+							<p>2) After expiration of <strong>Time period</strong> defined in sandbox job, please check the folder <strong>/var/log/suricata/files</strong> to be sure that the above files were sent to the sandbox and deleted in this folder by Alertflex management console.</p>
+							<div class="text-left codeBlock" >
+								<pre><code class="bash">
+cd /var/log/suricata/files
+find ./ -name "*"
+
+./41
+./86
+
+								</code></pre>
+							</div>
+							
+							<p>3) Open panel of Cuckoo Web UI and check status of sandbox task.</p>
+							<a href="#" >
+								<img src="../img/blogs/blog02_cuckoo.jpg" class="pull-left img-responsive" >
+							</a>
+							
+							<p>4) Open panel <strong>/jobs/reports/sandbox</strong> of Alertflex management console and check status of sandbox task.</p>
+							<a href="#" >
+								<img src="../img/blogs/blog02_task.jpg" class="pull-left img-responsive" >
+							</a>
+							
+							<p>5) If the status of the task is <strong>reported</strong> please check the alert dashboard of Alertflex console, there is an alert about file analysis must be present.</p>
+							<a href="#" >
+								<img src="../img/blogs/blog02_alert.jpg" class="pull-left img-responsive" >
+							</a>
+							
+					
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	<script src="../js/jquery.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	
+	    
+  </body>
+</html>

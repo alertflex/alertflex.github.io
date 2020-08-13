@@ -1,0 +1,280 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Architecture &mdash; Alertflex 0.7 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Installation of Cnode" href="install_cnode.html" />
+    <link rel="prev" title="Welcome to Alertflex’s documentation!" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Alertflex
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                open-source version
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#high-level-design">High-level design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#low-level-design">Low-level design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#central-node">Central node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#collector-node">Collector node</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="install_cnode.html">Installation of Cnode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config_cnode.html">Configuration of Cnode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install_altprobe.html">Installation of Altprobe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config_altprobe.html">Configuration of Altprobe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="integration.html">Integrations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notices.html">Copyright notices</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Alertflex</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Architecture</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/pages/architecture.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="architecture">
+<h1>Architecture<a class="headerlink" href="#architecture" title="Permalink to this headline">¶</a></h1>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="section" id="high-level-design">
+<h2>High-level design<a class="headerlink" href="#high-level-design" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Alertflex</span> <span class="pre">project</span></code> is a continuous security monitoring solution designed for use in Hybrid Clouds (on-premises and cloud-based IT infrastructure).
+By monitoring events near real-time from well-known open-source security applications, Alertflex gives companies end-to-end security visibility,
+implements EDR, CTI and SOAR technology stack.</p>
+<img alt="../_images/hld-arch.png" src="../_images/hld-arch.png" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="low-level-design">
+<h2>Low-level design<a class="headerlink" href="#low-level-design" title="Permalink to this headline">¶</a></h2>
+<p>The Alertflex is based on five levels of security event management technology: Collection, Streaming, Analysis, Storage, Access.
+For working in a distributed environment of Hybrid Clouds, the solution consists of separate software components Collector, Controller, Management Console.
+Collector (Altprobe) is placed in the network domain where security sensors are installed (Container Runtime Security, Host IDS, File Integrity Monitor,
+Network IDS, Web Application Firewall). Together with security sensors, Collector logically forms the Collector node.
+Alertflex Controller and Management Console make up the central node. The central node could be placed inside of monitored IT infrastructure or outside.
+To exchange messages between the Collector node and the Central node, the ActiveMQ or Amazon MQ message broker is used.
+The security of connections between nodes is implemented on the basis of support for SSL / TLS protocols built into ActiveMQ.
+The solution can be easily scaled from the stand-alone appliance configuration to the distributed configuration for multi-clouds.</p>
+<img alt="../_images/lld-arch.png" src="../_images/lld-arch.png" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="central-node">
+<h2>Central node<a class="headerlink" href="#central-node" title="Permalink to this headline">¶</a></h2>
+<p>The minimum configuration of the central node includes Alertflex Java EE applications (Controller, Management console)
+which work under Payara/GlassFish AS and third-party open-source components ActiveMQ, Redis, MySQL. It can be installed on the stand-alone server
+or virtual machine with Linux Centos 7 or Ubuntu 16.04 version. The high availability of the central node is based on cluster configurations
+of third-party components and microservices architecture Alertflex applications. Below a drawing of such a High availability scheme:</p>
+<img alt="../_images/central-node.png" src="../_images/central-node.png" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="collector-node">
+<h2>Collector node<a class="headerlink" href="#collector-node" title="Permalink to this headline">¶</a></h2>
+<p>Collector node is based on the micro-segmentation model. It can include several alertflex collectors (Altprobe) and security sensors/IDS.
+The minimum configuration of such a node includes one installed collector on a computer/virtual machine (Master) in the node segment.
+The configuration can be expanded by installation several Alertflex collectors on different computers/VM inside of the node segment.
+It allows connecting many security sensors inside one network segment controlled by the node and using a single network and agents namespace.
+Alertflex collector can directly read security events from IDS logs or use Redis server for receiving events from IDS which are installed on other hosts.
+See an example of such configuration below:</p>
+<img alt="../_images/collector-node.png" src="../_images/collector-node.png" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="install_cnode.html" class="btn btn-neutral float-right" title="Installation of Cnode" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="Welcome to Alertflex’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, alertflex.org
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

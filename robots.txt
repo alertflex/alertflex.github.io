@@ -1,0 +1,6 @@
+# Robots.txt file 
+# For domain: http://alertflex.org
+
+# main section
+User-agent: *
+Allow: /

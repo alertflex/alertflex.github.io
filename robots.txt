@@ -1,5 +1,5 @@
 # Robots.txt file 
-# For domain: http://alertflex.org
+# For domain: https://alertflex.org
 
 # main section
 User-agent: *

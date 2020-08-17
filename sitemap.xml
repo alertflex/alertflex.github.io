@@ -7,9 +7,21 @@
 <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
 <url>
-  <loc>http://alertflex.org/</loc>
+  <loc>https://alertflex.org/</loc>
 </url>
 <url>
-  <loc>http://alertflex.org/index.html</loc>
+  <loc>https://alertflex.org/index.html</loc>
+</url>
+<url>
+  <loc>https://alertflex.org/blog.html</loc>
+</url>
+<url>
+  <loc>https://alertflex.org/blog/blog01.html</loc>
+</url>
+<url>
+  <loc>https://alertflex.org/blog/blog02.html</loc>
+</url>
+<url>
+  <loc>https://alertflex.org/doc/index.html</loc>
 </url>
 </urlset>

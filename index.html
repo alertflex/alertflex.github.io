@@ -60,7 +60,6 @@
 					<li><a href="#contact"><span class="fa fa-envelope"></span> CONTACT</a></li>
 					<li><a href="#demo" class="nav-link"><span class="fa fa-film"></span> DEMO</a></li>
 					<li><a href="doc/index.html" ><span class="fa fa-book"></span> DOCUMENTATION</a></li>
-					<li><a href="#download"><span class="fa fa-download"></span> DOWNLOAD</a></li>
 					<li><a href="#features" class="nav-link"><span class="fa fa-shopping-cart"></span> FEATURES</a></li>
 					<li><a href="#integrations" class="nav-link"><span class="fa fa-th-large"></span> INTEGRATIONS</a></li>
 				</ul>
@@ -73,7 +72,7 @@
 			<div class="container" >
 				<div class="col-md-12" style="margin-top:30px; padding-bottom:30px">
 					<div style="text-align: justify;" >
-						<strong style="color:#fff; font-size: 16px;">Alertflex project is a continuous security monitoring solution designed for use in Hybrid Clouds (on-premises and cloud-based IT infrastructure). By monitoring events near real-time from well-known open-source security applications, Alertflex gives companies end-to-end security visibility, implements EDR, CTI and SOAR technology stack.</strong> 
+						<strong style="color:#fff; font-size: 16px;">Alertflex project is a continuous security monitoring solution designed for use in Hybrid Clouds (on-premises and cloud-based IT infrastructure). By monitoring security events and reports from well-known open-source security applications, Alertflex gives companies end-to-end security visibility. The project adapts third-party software products in the unified solution based on SOAR technology stack and DevSecOps best practices.</strong> 
 					</div>
 				</div>
 				<div class="row">
@@ -82,7 +81,7 @@
 							<img src="img/icons/filters.png" alt="">
 						</a>
 						<div style="padding-top:10px;" id="functional">
-							<strong style="color:#fff; font-size: 18px;">Alerts triage. Filtering, prioritization and visualization</strong> 
+							<strong style="color:#fff; font-size: 18px;">Alerts filtering, prioritization and visualization</strong> 
 						</div>
 					</div>
 					
@@ -109,7 +108,7 @@
 							<img src="img/icons/conductor.png" alt="">
 						</a>
 						<div style="padding-top:10px;" id="functional">
-							<strong style="color:#fff; font-size: 18px;">Security orchestration</strong> 
+							<strong style="color:#fff; font-size: 18px;">Security Orchestration and Automation</strong> 
 						</div>
 					</div>
 				</div>
@@ -117,39 +116,8 @@
 		</section>
     </div> <!-- /.jumbotron -->
 	
-	
-	<div id="components" class="container" style="padding-bottom:70px; padding-top:70px; " >
+	<div id="demo" class="container" style="padding-bottom:50px; padding-top:50px; ">
 		<div class="container">
-			<div style="text-align: justify;" >
-				<p><strong>Solution components:</strong></p>
-				<p>The Alertflex is based on five levels of security event management technology: Collection, Streaming, Analysis, Storage, Access. For working in a distributed environment of Hybrid Clouds, the solution consists of separate software components Collector, Controller, Event Manager, Worker. Collector (Altprobe) is placed in the network domain where security sensors are installed (Container Runtime Security, Host IDS, File Integrity Monitor, Network IDS, Web Application Firewall). Together with security sensors, Collector logically forms the Collector node. Alertflex Controller, Event Manager, and Workers make up the central node. The central node could be placed inside of monitored IT infrastructure or outside. To exchange messages between the Collector node and the Central node, the ActiveMQ or Amazon MQ message broker is used. The security of connections between nodes is implemented on the basis of support for SSL / TLS protocols built into ActiveMQ. The solution can be easily scaled from the stand-alone appliance configuration to the distributed configuration for multi-clouds.</p>
-				
-				<div >
-					<p >
-						<small>For more information, please, see the Alertflex tech presentation</small>
-					</p>
-					<a class="btn btn-info" role="button" href="doc/alertflex.pdf">
-						view presentation
-					</a>
-				</div>
-			</div>
-		</div>
-		</div>
-	</div> <!-- /.container -->		
-	
-	<div id="contact" class="container-alternate" style="padding-bottom:70px; padding-top:70px;">
-		<div class="container">
-			<p>Have a question, need tech support or new feature, send an email to address:<a id="github_link" href="mailto:info@alertflex.org"> info@alertflex.org</a></p>
-		</div>
-    </div> <!-- /.container -->
-
-	<div id="demo" class="container" style="padding-bottom:70px; padding-top:70px; ">
-		<div class="container">
-			<div class="col-md-12" >
-				<div align="center" >
-					<p >Below, several screenshots of Alertflex web console.</p>
-				</div> 
-			</div>
 			<div class="row">
 				<div class="col-md-12" style="padding-bottom:20px; padding-top:20px; ">
 					<div id="tour" class="carousel slide">
@@ -207,9 +175,9 @@
 		</div>
 	</div>
 	
-	<div id="download" class="container-alternate" style="padding-bottom:70px; padding-top:70px;">
+	<div id="contact" class="container-alternate" style="padding-bottom:70px; padding-top:70px;">
 		<div class="container">
-			<p>For downloading free and open-source components of the project, visit our page on the <a id="github_link" href="http://github.com/alertflex">Github <i class="fa fa-github"></i></a></p> 
+			<p>Have a question, need tech support or new feature, send an email to address:<a id="github_link" href="mailto:info@alertflex.org"> info@alertflex.org</a></p> 
 		</div>
     </div> <!-- /.container -->
 	
@@ -228,16 +196,15 @@
 						</div>
 						<ul class="list-group list-group-flush text-left">
 							<li class="list-group-item"><i style="color: #42C7CE;" class="fa fa-check-circle-o"></i>  Security Event Manager</li>
-							<li class="list-group-item"><i style="color: #42C7CE;" class="fa fa-check-circle-o"></i>  Grafana based web analytics</li>
-							<li class="list-group-item"><i style="color: #42C7CE;" class="fa fa-check-circle-o"></i>  Time based Security Automation</li>
+							<li class="list-group-item"><i style="color: #42C7CE;" class="fa fa-check-circle-o"></i>  Central Management of security sensors hub</li>
+							<li class="list-group-item"><i style="color: #42C7CE;" class="fa fa-check-circle-o"></i>  Grafana based analytics and own web reports generation</li>
+							<li class="list-group-item"><i style="color: #42C7CE;" class="fa fa-check-circle-o"></i>  Security Orchestration and Automation</li>
 							<li class="list-group-item"><i style="color: #42C7CE;" class="fa fa-check-circle-o"></i>  CTI functional based on MISP</li>
-							<li class="list-group-item"><i style="color: #42C7CE;" class="fa fa-check-circle-o"></i>  Management of cloud-based and on-premises security sensors hubs</li>
-							<li class="list-group-item"><i style="color: #42C7CE;" class="fa fa-check-circle-o"></i>  Central node - single server, bare-metal or virtual machine</li>
 							<li class="list-group-item"><i style="color: #42C7CE;" class="fa fa-check-circle-o"></i>  One project, single tenant</li>
 							<li class="list-group-item"><i style="color: #42C7CE;" class="fa fa-check-circle-o"></i>  Community support</li>
 						</ul>
 						<div class="panel-footer">
-							<a class="btn btn-lg btn-block btn-info" href="http://github.com/olegzhr">DOWNLOAD NOW</a>
+							<a class="btn btn-lg btn-block btn-info" href="http://github.com/alertflex">DOWNLOAD NOW</a>
 						</div>
 					</div>
 					<!-- /PRICE ITEM -->
@@ -253,20 +220,19 @@
 							<h3  style="color:#fff;">PROFESSIONAL EDITION </h3>
 						</div>
 						<div class="panel-body text-center">
-							<p class="lead" style="font-size:40px;"><strong>Beta version</strong></p>
+							<p class="lead" style="font-size:40px;"><strong>Check out the proposals</strong></p>
 						</div>
 						<ul class="list-group list-group-flush text-left">
-							<li class="list-group-item"><i style="color: #2E80EE;" class="fa fa-check-circle-o"></i>  Security Event Manager and Fast Response</li>
-							<li class="list-group-item"><i style="color: #2E80EE;" class="fa fa-check-circle-o"></i>  Own web analytics and email report generation</li>
-							<li class="list-group-item"><i style="color: #2E80EE;" class="fa fa-check-circle-o"></i>  Time and Event based Security Orchestrator, Playbooks</li>
+							<li class="list-group-item"><i style="color: #2E80EE;" class="fa fa-check-circle-o"></i>  Security Event Manager</li>
+							<li class="list-group-item"><i style="color: #2E80EE;" class="fa fa-check-circle-o"></i>  Central Management of security sensors hub</li>
+							<li class="list-group-item"><i style="color: #2E80EE;" class="fa fa-check-circle-o"></i>  Grafana based analytics and own web reports generation</li>
+							<li class="list-group-item"><i style="color: #2E80EE;" class="fa fa-check-circle-o"></i>  Security Orchestration and Automation</li>
 							<li class="list-group-item"><i style="color: #2E80EE;" class="fa fa-check-circle-o"></i>  CTI functional based on MISP</li>
-							<li class="list-group-item"><i style="color: #2E80EE;" class="fa fa-check-circle-o"></i>  Management of cloud-based and on-premises security sensors hubs</li>
-							<li class="list-group-item"><i style="color: #2E80EE;" class="fa fa-check-circle-o"></i>  Central node - microservices architecture, high availability</li>
 							<li class="list-group-item"><i style="color: #2E80EE;" class="fa fa-check-circle-o"></i>  Multiple projects, multi-tenancy</li>
 							<li class="list-group-item"><i style="color: #2E80EE;" class="fa fa-check-circle-o"></i>  Tech support, regular SW update</li>
 						</ul>
 						<div class="panel-footer">
-							<a class="btn btn-lg btn-block btn-info" href="#contacts">CONTACT US NOW</a>
+							<a class="btn btn-lg btn-block btn-info" href="#contact">CONTACT US NOW</a>
 						</div>
 					</div>
 					<!-- /PRICE ITEM -->
@@ -404,6 +370,27 @@
 					</div>
 				</div>
 				
+				<div class="col-sm-4">
+					<img class="card-img-top" src="img/logos/oca.jpg" alt="Card image cap">
+					<div class="card-body">
+						<h5 class="card-title">STIX-shifter</h5>
+					</div>
+				</div>
+				
+				<div class="col-sm-4">
+					<img class="card-img-top" src="img/logos/docker-bench.jpg" alt="Card image cap">
+					<div class="card-body">
+						<h5 class="card-title">Docker Bench for Security</h5>
+					</div>
+				</div>
+				
+				<div class="col-sm-4">
+					<img class="card-img-top" src="img/logos/trivy.jpg" alt="Card image cap">
+					<div class="card-body">
+						<h5 class="card-title">Trivy</h5>
+					</div>
+				</div>
+				
 			</div>
 		</div>
 	</div>
@@ -425,7 +412,7 @@
                 </div>
 				                
                 <div class="col-md-5">
-                    <span class="copyright" style="color: #fff;"><i class="fa fa-copyright"></i> 2019, alertflex.org</span>
+                    <span class="copyright" style="color: #fff;"><i class="fa fa-copyright"></i> 2020, alertflex.org</span>
 				</div>
             </div>
             

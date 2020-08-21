@@ -4,3 +4,4 @@
 # main section
 User-agent: *
 Allow: /
+Disallow: /doc

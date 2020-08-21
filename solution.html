@@ -1,0 +1,199 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+  
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-77081853-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+        gtag('config', 'UA-77081853-1');
+	</script>
+	
+    <meta charset="utf-8"/>
+    
+	<title>Alertflex | open-source security solution with advanced functionality</title>
+	
+	<meta name="description" content="Alertflex is a free, open source security solution for automation, orchestration, threat detection and continuous monitoring.">
+	
+	<meta name="google-site-verification" content="TsbkqUA159z1EBgm6fBO6z3LdzvojGciFB3yHm2SWEY" />
+	
+	<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+	
+	<link rel="canonical" href="https://alertflex.org/solution.html" />
+	
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900' rel='stylesheet' type='text/css'>
+	<link href="css/bootstrap.min.css" rel="stylesheet"/>
+	<link href="css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="css/style.css" rel="stylesheet"/>
+    <link rel="icon" href="img/box.ico"/>
+    <link rel="shortcut icon" href="img/box.ico"/>
+  </head>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KLL949K"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
+	
+    <nav class="navbar navbar-default navbar-fixed-top" >
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="index.html">
+					<span style="display: inline-block;">ALERTFLEX</span>
+				</a>
+			</div> <!-- /.navbar-header -->
+
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right" >
+					<li><a href="#"><span class="fa fa-sitemap"></span> SOLUTION</a></li>
+					<li><a href="blog.html"><span class="fa fa-rss"></span> BLOG</a></li>
+					<li><a href="index.html#contact"><span class="fa fa-envelope"></span> CONTACT</a></li>
+					<li><a href="doc/index.html" ><span class="fa fa-book"></span> DOCUMENTATION</a></li>
+					<li><a href="index.html#features" class="nav-link"><span class="fa fa-shopping-cart"></span> FEATURES</a></li>
+					<li><a href="index.html#integrations" class="nav-link"><span class="fa fa-th-large"></span> INTEGRATIONS</a></li>
+				</ul>
+			</div> <!-- /.navbar-collapse -->
+		</div> <!-- /.container -->
+    </nav> <!-- /.navbar -->
+	
+	<div class="container" style="padding-bottom:30px; padding-top:70px; " >
+		<div class="panel-heading"> <h1 style="color:#000;" >Open-source security solution with advanced functionality.</h1></div>
+	</div>
+	
+	<div id="alerts" class="container" style="padding-bottom:30px; padding-top:0px; ">
+			
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		
+			<div class="panel price panel-green">
+				<div class="panel-heading arrow_box text-center">
+				<h2 style="color:#fff;">Alerts filtering, prioritization and visualization</h2>
+				</div>
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-sm-2">
+							<a href="#">
+								<img src="img/icons/filters.png" class="img-responsive">
+							</a>
+						</div>
+						<div class="col-sm-10 article">    
+							<p>The Alertflex implements security events management functions for a distributed hub of security sensors (<strong>Suricata NIDS, Wazuh HIDS, Falco CRS, Modsecurity WAF</strong>). Its are based on the next modern levels: Collection (Alertflex collector), Streaming (ActiveMQ), Analysis (Alertflex controller), Storage (MySQL), Access (Alertflex controller and console).</p>
+						</div>
+					</div>
+				</div>
+				<ul class="list-group list-group-flush text-left">
+					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-check-circle-o"></i> Alertflex Collector (Altprobe) receives through the Redis or directly from log files IDS events from Suricata NIDS, Wazuh HIDS, Modsecurity WAF, Falco CRS in JSON format.</p></li>
+					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-check-circle-o"></i> Based on filtering policies, Collector extracts high priority events, makes aggregation and normalization for them. It allows to simplify the management of alerts, reduces noise from minor events.</p></li>
+					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-check-circle-o"></i> The Collector immediately sends high priority events (alerts) to the central node.</p></li>
+					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-check-circle-o"></i> For implementing the “Anti-flooding” algorithm which prevents large bursts of events on the central node side, the Collector sends to Controller large size info (NetFlow, statistics, reports) inside of pre-accumulated and compressed data blocks.</p></li>
+					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-check-circle-o"></i> The Controller saves alerts in Alertflex database (MySQL).</p></li>
+					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-check-circle-o"></i> The Controller can redirect alerts to Graylog, ElasticStack, OpenDistro log management platforms.</p></li> 
+					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-check-circle-o"></i> Provides a REST API and STIX-shifter interface for access to alerts.</p></li> 
+					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-check-circle-o"></i> The web management console provides various reports and web-form for alerts search.</p></li> 
+				</ul>
+			</div>
+		</div>
+		
+    </div> <!-- /.container -->
+	
+	<div id="detection" class="container" style="padding-bottom:30px; padding-top:30px; ">
+			
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		
+			<div class="panel price panel-green">
+				<div class="panel-heading arrow_box text-center">
+				<h2 style="color:#fff;">Detection intrusions, vulnerabilities and misconfigurations</h2>
+				</div>
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-sm-2">
+							<a href="#">
+								<img src="img/icons/analytics.png" class="img-responsive">
+							</a>
+						</div>
+						<div class="col-sm-10 article">    
+							<p>For <strong>Threat Detection</strong>, the Alertflex uses Controller  based integration with the <strong>Cyber Threat Intelligence platform MISP</strong>. For finding vulnerabilities and assets misconfigurations, Alertflex performs a comprehensive analysis of different reports from <strong>security sensors and remote vulnerability scanners</strong>.</p>
+						</div>
+					</div>
+				</div>
+				<ul class="list-group list-group-flush text-left">
+					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-check-circle-o"></i> The Alertlex performs reputation checks for IP addresses, DNS records, MD5 and SHA1 hashes of files. Creates an alert, in case of suspicious data has been found.</p></li>
+					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-check-circle-o"></i> Performs analysis of different reports (<strong>OpenSCAP, OWASP ZAP, Nessus, Nmap, Wazuh SCA, Docker Bench</strong>, etc). Generates alert if a <strong>new vulnerability, misconfigurations, processes, packages or user</strong> has been found.</p></li>
+					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-check-circle-o"></i> For advanced WEB analytics can be used Grafana that connected with Alertflex Database (MySQL).</p></li>
+				</ul>
+			</div>
+		</div>
+		
+    </div> <!-- /.container -->
+	
+	<div id="integrated" class="container" style="padding-bottom:30px; padding-top:30px; ">
+			
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		
+			<div class="panel price panel-green">
+				<div class="panel-heading arrow_box text-center">
+				<h2 style="color:#fff;">Integrated analysis network, containers and hosts</h2>
+				</div>
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-sm-2">
+							<a href="#">
+								<img src="img/icons/union.png" class="img-responsive">
+							</a>
+						</div>
+						<div class="col-sm-10 article">    
+							<p>Putting together security events from <strong>Falco CRS (Container Runtime Security)</strong> with events from <strong>Host IDS and Network IDS</strong> provides an integrated analysis of network, containers and hosts.</p>
+						</div>
+					</div>
+				</div>
+				<ul class="list-group list-group-flush text-left">
+					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-check-circle-o"></i> The Alertflex components recognize the <strong>Wazuh HIDS agent's</strong> namespace inside the <strong>Suricata NIDS</strong> alerts and Netflow events. It allows Alertflex to perform a <strong>correlation of security events</strong> for Network and Endpoints</strong>.</p></li>
+					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-check-circle-o"></i> Additionally, Alertflex can process network events from <strong>Sysmon (Windows), Auditd (Linux), PacketBeat (Elastic)</strong> to gather information on what host application initiated the <strong>suspicious network session</strong>.</p></li>
+				</ul>
+			</div>
+		</div>
+		
+    </div> <!-- /.container -->
+	
+	<div id="orchestrator" class="container" style="padding-bottom:30px; padding-top:30px; ">
+			
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		
+			<div class="panel price panel-green">
+				<div class="panel-heading arrow_box text-center">
+				<h2 style="color:#fff;">Security orchestration and automation</h2>
+				</div>
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-sm-2">
+							<a href="#">
+								<img src="img/icons/conductor.png" class="img-responsive">
+							</a>
+						</div>
+						<div class="col-sm-10 article">    
+							<p>Alertflex works as <strong>a security orchestrator</strong> for several third-party applications/cybersecurity platforms. The system can integrate into one solution the next open source products: <strong>OWASP ZAP, Nmap, Nessus, MISP, Cuckoo Sandbox, Graylog, ElasticStack</strong> and more.</p>
+						</div>
+					</div>
+				</div>
+				<ul class="list-group list-group-flush text-left">
+					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-check-circle-o"></i> Can periodically run scanning of remote files in Malware Analysis Sandbox (Cuckoo, Hybrid Analysis, VMRay)</p></li>
+					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-check-circle-o"></i> IDS centralized management for rules, configs, filtering policies, IP address blocking lists.</p></li>
+					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-check-circle-o"></i> Integrates with SAST and DAST tools (Nmap, Nessus, SonarQube, OWASP ZAP)</p></li>
+					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-check-circle-o"></i> Automatically run remote scripts via SSH and SFTP protocols.</p></li>
+				</ul>
+			</div>
+		</div>
+		
+    </div> <!-- /.container -->
+    
+    
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	
+  </body>
+</html>

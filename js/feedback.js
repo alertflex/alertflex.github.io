@@ -1,6 +1,6 @@
 $(function() {
 	$("#feedback-tab").click(function() {
-		window.location.assign('https://www.surveymonkey.com/r/HNVJFPR');
+		window.location.assign('https://github.com/alertflex');
 	});
 });
 

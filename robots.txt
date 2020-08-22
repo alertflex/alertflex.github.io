@@ -6,4 +6,4 @@ User-agent: *
 Allow: /
 Disallow: /doc/
 
-Sitemap: https://alertflex.org/sitemap.xml
+Sitemap: http://alertflex.org/sitemap.xml

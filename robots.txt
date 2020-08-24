@@ -4,5 +4,6 @@
 # main section
 User-agent: *
 Disallow: /doc/
+Disallow: /img/
 
 Sitemap: https://alertflex.org/sitemap.xml

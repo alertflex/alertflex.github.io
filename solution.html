@@ -147,13 +147,13 @@
 							</a>
 						</div>
 						<div class="col-sm-10 article">    
-							<p>Putting together security events from <strong>Falco CRS (Container Runtime Security)</strong> with events from <strong>Host IDS and Network IDS</strong> provides an integrated analysis of network, containers and hosts.</p>
+							<p>Putting together security events from Falco CRS (Container Runtime Security), Wazuh (Host IDS) and Suricata (Network IDS) provides an integrated analysis of network, containers, and hosts.</p>
 						</div>
 					</div>
 				</div>
 				<ul class="list-group list-group-flush text-left">
-					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-check-circle-o"></i> The Alertflex components recognize the <strong>Wazuh HIDS agent's</strong> namespace inside the <strong>Suricata NIDS</strong> alerts and Netflow events. It allows Alertflex to perform a <strong>correlation of security events</strong> for Network and Endpoints</strong>.</p></li>
-					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-check-circle-o"></i> Additionally, Alertflex can process network events from <strong>Sysmon (Windows), Auditd (Linux), PacketBeat (Elastic)</strong> to gather information on what host application initiated the <strong>suspicious network session</strong>.</p></li>
+					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-check-circle-o"></i> The Alertflex components recognize the Wazuh HIDS agent's namespace inside of the Suricata NIDS alerts and Netflow events. It allows you to perform a correlation of security events for Network and Endpoints.</p></li>
+					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-check-circle-o"></i> Additionally, Alertflex can recognize of fields process id and process name inside events of PacketBeat (ElasticStack). Matching these events with alerts from Suricata IDS gives you the possibility to trace of the suspicious network session from NIDS to an application/process on the host.</li>
 				</ul>
 			</div>
 		</div>

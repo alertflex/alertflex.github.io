@@ -1,0 +1,483 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+  
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-77081853-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+        gtag('config', 'UA-77081853-1');
+	</script>
+	
+	<meta charset="utf-8"/>
+    
+	<title>Alertflex | Integration Alertflex and STIX-Shifter</title>
+	
+	<meta name="description" content="Alertflex is a free, open source security solution for automation, orchestration, threat detection and continuous monitoring.">
+	
+	<meta name="google-site-verification" content="TsbkqUA159z1EBgm6fBO6z3LdzvojGciFB3yHm2SWEY" />
+	
+	<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+	
+	<link rel="canonical" href="https://alertflex.org/blog/blog03.html" />
+	
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900' rel='stylesheet' type='text/css'>
+	<link href="../css/bootstrap.min.css" rel="stylesheet"/>
+	<link href="../css/font-awesome.min.css" rel="stylesheet"/>
+	<link href="../css/style.css" rel="stylesheet"/>
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/styles/dracula.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js"></script>
+	<script type='text/javascript'>
+		hljs.initHighlightingOnLoad();
+		$(document).ready(function() {
+			$('.codeBlock').each(function(i, e) {hljs.highlightBlock(e)});
+		});
+	</script>
+		
+	<link rel="icon" href="../img/box.ico"/>
+    <link rel="shortcut icon" href="../img/box.ico"/>
+  </head>
+  <body>
+    
+    <nav class="navbar navbar-default navbar-fixed-top" >
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="../index.html">
+					<span style="display: inline-block;">ALERTFLEX</span>
+				</a>
+			</div> <!-- /.navbar-header -->
+
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right" >
+					<li><a href="../solution.html"><span class="fa fa-sitemap"></span> SOLUTION</a></li>
+					<li><a href="../blog.html"><span class="fa fa-rss"></span> BLOG</a></li>
+					<li><a href="../index.html#contacts"><span class="fa fa-envelope"></span> CONTACT</a></li>
+					<li><a href="../doc/index.html"><span class="fa fa-book"></span> DOCUMENTATION</a></li>
+					<li><a href="../index.html#features"><span class="fa fa-shopping-cart"></span> FEATURES</a></li>
+					<li><a href="../index.html#integrations"><span class="fa fa-th-large"></span> INTEGRATIONS</a></li>
+				</ul>
+			</div> <!-- /.navbar-collapse -->
+		</div> <!-- /.container -->
+    </nav> <!-- /.navbar -->
+	
+	<div class="container" style="margin-top:80px;" >
+	
+		<div class="panel panel-default">
+		
+			<div class="panel-heading"> <h1 style="color:#000;" >Integration Alertflex and STIX-Shifter</h1></div>
+			
+			<div class="panel-body">
+			
+				<div class="media">
+				
+					<div class="row">
+						<div class="col-sm-4">
+							<a href="#">
+								<img src="../img/blogs/stix-shifter.png" class="img-responsive">
+							</a>
+						</div>
+						<div class="col-sm-8 article">    
+							<p>STIX-shifter is an open source python library allowing software to connect to products that house data repositories by using STIX Patterning, and return results as STIX Observations. STIX 2 Patterning is a part of STIX that deals with the "matching things" part of STIX, which is an integral component of STIX Indicators. In addition to "finding" the data by using these patterns, STIX-Shifter uniquely also transforms the output into STIX 2 Observations. Why would we do that you ask? To put it simply - so that all of the security data, regardless of the source, mostly looks and behaves the same. STIX-shifter is a part of <a id="github_link" style="font-weight: bold; font-size: 16px;" href="https://opencybersecurityalliance.org/"> Open Cybersecurity Alliance</a> Ecosystem</p>
+							<h3 class="text-left">Objective</h3>
+							<p>Describe the process of integration AlertFlex and STIX-Shifter open-source projects. Shows how STIX-Shifter input (STIX pattern) transformed and modified by the Alertflex STIX-shifter module and Alertflex Controller to return results (alerts) as STIX Observations.</p>
+						</div>
+						
+						<div  class="col-sm-12 article" style="margin-top:20px;"> 
+							<p>From STIX-Shifter perspective, the Alertflex is an alert feeder/supplier. At this moment Alertflex be able to aggregate, filter, normalized and store of alerts and reports from 17 different type of security applications (mostly free open source projects).</p>
+							<p><strong style="font-weight: bold;">Alertflex STIX-Shifter module</strong> is based on the <strong style="font-weight: bold;">Synchronous-Dummy module</strong> that provided with STIX-shifter as an example. Synchronous-Dummy module already includes logic for translation STIX pattern to SQL request, therefore Alertflex was modified from this module with minimal changes.</p>
+							<a href="#" >
+								<img src="../img/blogs/blog03_diag.jpg" class="pull-left img-responsive" style="max-width: 50%; height: auto;">
+							</a>
+						</div>
+						
+						<div class="col-sm-12 article" style="margin-top:10px;"> 	
+							
+							<h3 class="text-left">Translation STIX pattern to SQL request for Alertflex Controller.</h3>
+							
+							<p>STIX PATTERN: <strong style="font-weight: bold; color: #FF5733">[file:name = ‘/etc/altprobe/altprobe.yaml’]</strong> based on JSON description of alert in file <strong style="font-weight: bold;">from_stix_map.json</strong> :</p>
+							<div class="text-left codeBlock">
+								<pre><code class="json">
+{
+  "ipv4-addr": {
+    "fields": {
+      "value": ["a.dstIp", "a.srcIp"]
+    }
+  },
+  "network-traffic": {
+    "fields": {
+      "src_port": ["a.srcPort"],
+      "dst_port": ["a.dstPort"],
+      "src_ref": ["a.srcIp"],
+      "dst_ref": ["a.dstIp"]
+    }
+  },
+  "file": {
+    "fields": {
+      "name": ["a.fileName"],
+      "hashes.SHA-256": ["a.hashSha256"],
+      "hashes.SHA-1": ["a.hashSha1"],
+      "hashes.MD5": ["a.hashMd5"]
+    }
+  },
+  "process": {
+    "fields": {
+      "name": ["a.processName"],
+      "pid": ["a.processId"]
+    }
+  },
+  "user-account":{
+    "fields": {
+      "user_id": ["a.userName"]
+    }
+  },
+  "x_org_alertflex" : {
+    "fields": {
+      "agent": ["a.agentName"],
+      "node": ["a.nodeId"],
+      "source": ["a.alertSource"],
+      "type": ["a.alertType"],
+      "id": ["a.eventId"],
+      "severity": ["a.alertSeverity"]
+    }
+  }
+}								
+								</code></pre>
+							</div>
+							
+							<p>Alertflex module translates pattern to SQL REQUEST: <strong style="font-weight: bold; color: #FF5733">SELECT a FROM Alert a WHERE a.fileName = ‘/etc/altprobe/altprobe.yaml'</strong>. Every field that presented in file <strong style="font-weight: bold;">from_stix_map.json</strong> can be criteria searching for alerts in Alertflex DB.</p>
+							
+							<h3 class="text-left">Translation of SQL output from Alertflex DB to STIX Observation format.</h3>
+							
+							<p>Alertflex Controller translates records from Alert table to JSON array of records and returns it as a result of the REST request from STIX shifter module. Below you can see the Alert table and an example of a response from Alertflex Controller. JSON fields directly correspond to fields in Alert table.</p>
+
+							<div class="text-left codeBlock">
+								<pre><code class="sql">
+CREATE TABLE `alert` (
+  `alert_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `alert_uuid` char(37) NOT NULL DEFAULT '',
+  `ref_id` varchar(255) NOT NULL DEFAULT '',
+  `node_id` varchar(255) NOT NULL DEFAULT '',
+  `sensor_id` varchar(512) NOT NULL DEFAULT '',
+  `categories` varchar(1024) NOT NULL DEFAULT '',
+  `description` varchar(1024) NOT NULL DEFAULT '',
+  `alert_severity` int(10) unsigned NOT NULL DEFAULT '0',
+  `alert_source` varchar(32) NOT NULL DEFAULT '',
+  `alert_type` varchar(32) NOT NULL DEFAULT '',
+  `event_id` varchar(512) NOT NULL DEFAULT '',
+  `event_severity` int(10) unsigned NOT NULL DEFAULT '0',
+  `src_ip` varchar(128) NOT NULL DEFAULT '',
+  `dst_ip` varchar(128) NOT NULL DEFAULT '',
+  `src_hostname` varchar(128) NOT NULL DEFAULT '',
+  `dst_hostname` varchar(128) NOT NULL DEFAULT '',
+  `src_port` int(10) unsigned NOT NULL DEFAULT '0',
+  `dst_port` int(10) unsigned NOT NULL DEFAULT '0',
+  `file_name` varchar(512) NOT NULL DEFAULT '',
+  `file_path` varchar(1024) NOT NULL DEFAULT '',
+  `hash_md5`  varchar(128) NOT NULL DEFAULT '',
+  `hash_sha1`	varchar(128) NOT NULL DEFAULT '',
+  `hash_sha256`	varchar(512) NOT NULL DEFAULT '',
+  `process_id`	int(10),
+  `process_name` varchar(512) NOT NULL DEFAULT '',
+  `process_cmdline` varchar(512) NOT NULL DEFAULT '',
+  `process_path` varchar(1024) NOT NULL DEFAULT '',
+  `url_hostname` varchar(512) NOT NULL DEFAULT '',
+  `url_path` varchar(1024) NOT NULL DEFAULT '',
+  `user_name` varchar(512) NOT NULL DEFAULT '',
+  `agent_name` varchar(512) NOT NULL DEFAULT '',
+  `container_id` varchar(512) NOT NULL DEFAULT '',
+  `container_name` varchar(512) NOT NULL DEFAULT '',
+  `location` varchar(1024) NOT NULL DEFAULT '',
+  `status` varchar(32) NOT NULL DEFAULT '',
+  `action` varchar(256) NOT NULL DEFAULT '',
+  `filter` varchar(512) NOT NULL DEFAULT '',
+  `info` varchar(1024) NOT NULL DEFAULT '',
+  `time_event` varchar(512) NOT NULL DEFAULT '',
+  `time_collr` datetime DEFAULT NULL,
+  `time_cntrl` datetime DEFAULT NULL,
+  `json_event` text,
+  PRIMARY KEY (`alert_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3496 DEFAULT CHARSET=utf8;
+
+								</code></pre>
+							</div>
+							
+							<div class="text-left codeBlock">
+								<pre><code class="json">
+{
+    'severity': 2,
+    'srcip': '0.0.0.0',
+    'agent': 'alertflex',
+    'create_time': 1597867109000,
+    'dstport': 0,
+    'description': 'Integrity checksum changed.',
+    'source': 'Wazuh',
+    'type': 'FILE',
+    'sha1': '6232e4a0f37b583182aad75d18b3a4147a54f85b',
+    'node': 'test01',
+    'protocol': 'ip',
+    'file': '/etc/altprobe/altprobe.yaml',
+    'srcport': 0,
+    'dstip': '0.0.0.0',
+    'event': '550',
+    'category': 'ossec, syscheck, pci_dss_11.5, hipaa_164.312.c.1, hipaa_164.312.c.2, gdpr_II_5.1.f, nist_800_53_SI.7',
+    'user': 'indef',
+    'info': 'File /etc/altprobe/altprobe.yaml',
+    'md5': '7d351ff6fea9e9dc100b7deb0e03fd35'
+}
+								</code></pre>
+							</div>
+							
+							<p>For translation of JSON records to STIX Observation format, STIX module uses file <strong style="font-weight: bold;">to_stix_map.json</strong>.</p>
+							
+							<div class="text-left codeBlock">
+								<pre><code class="json">
+{
+  "create_time": [
+    {
+      "key": "first_observed",
+      "transformer": "EpochToTimestamp",
+      "cybox": false
+    },
+    {
+      "key": "last_observed",
+      "transformer": "EpochToTimestamp",
+      "cybox": false
+    }
+  ],
+  "srcip":
+        [
+            {
+                "key": "ipv4-addr.value",
+                "object": "src_ip"
+            },
+            {
+                "key": "ipv6-addr.value",
+                "object": "src_ip"
+            },
+            {
+                "key": "network-traffic.src_ref",
+                "object": "nt",
+                "references": "src_ip"
+            }
+        ],
+  "dstip": [
+      {
+      "key": "ipv4-addr.value",
+      "object": "dst_ip"
+      },
+      {
+        "key": "ipv6-addr.value",
+        "object": "dst_ip"
+      },
+      {
+        "key": "network-traffic.dst_ref",
+        "object": "nt",
+        "references": "dst_ip"
+      }
+    ],
+    "srcport": {
+        "key": "network-traffic.src_port",
+        "object": "nt",
+        "transformer": "ToInteger"
+    },
+    "dstport": {
+        "key": "network-traffic.dst_port",
+        "object": "nt",
+        "transformer": "ToInteger"
+    },
+  "protocol": {
+    "key": "network-traffic.protocols",
+    "object": "nt",
+    "transformer": "ToLowercaseArray"
+  },
+  "domain-name": {
+    "fields": {
+      "value": ["url.domain"]
+    }
+  },
+  "user": {
+    "key": "user-account.user_id"
+  },
+  "file": {
+    "key": "file.name"
+  },
+  "process": {
+    "key": "process.name",
+    "object": "process"
+  },
+  "sha1": {
+    "key": "file.hashes.SHA-1",
+    "object": "file"
+  },
+  "sha256": {
+    "key": "file.hashes.SHA-256",
+    "object": "file"
+  },
+  "md5": {
+    "key": "file.hashes.MD5",
+    "object": "file"
+  },
+  "event": {
+    "key": "x_org_alertflex.event",
+    "cybox": false
+  },
+  "severity": {
+    "key": "x_org_alertflex.severity",
+    "cybox": false
+  },
+  "category": {
+    "key": "x_org_alertflex.category",
+    "cybox": false
+  },
+  "description": {
+    "key": "x_org_alertflex.description",
+    "cybox": false
+  },
+  "info": {
+    "key": "x_org_alertflex.info",
+    "cybox": false
+  },
+  "agent": {
+    "key": "x_org_alertflex.agent",
+    "cybox": false
+  },
+  "source": {
+    "key": "x_org_alertflex.source",
+    "cybox": false
+  },
+  "type": {
+    "key": "x_org_alertflex.type",
+    "cybox": false
+  },
+  "node": {
+    "key": "x_org_alertflex.node",
+    "cybox": false
+  }
+}
+								</code></pre>
+							</div>
+							
+							<p>Example of STIX Observations output for STIX pattern <strong style="font-weight: bold; color: #FF5733">[file:name = ‘/etc/altprobe/altprobe.yaml’]</strong> </p>
+							
+							<div class="text-left codeBlock">
+								<pre><code class="json">
+{
+    "type": "bundle",
+    "id": "bundle--a5528c1c-4407-4084-a5c0-758ed4d2c939",
+    "spec_version": "2.0",
+    "objects": [
+        {
+            "type": "identity",
+            "id": "identity--3532c56d-ea72-48be-a2ad-1a53f4c9c6d3",
+            "name": "Alertflex",
+            "identity_class": "events"
+        },
+        {
+            "id": "observed-data--131b1d84-97fc-4df3-a297-a3e0bb8db45d",
+            "type": "observed-data",
+            "created_by_ref": "identity--3532c56d-ea72-48be-a2ad-1a53f4c9c6d3",
+            "created": "2020-09-12T11:26:51.098Z",
+            "modified": "2020-09-12T11:26:51.098Z",
+            "objects": {
+                "0": {
+                    "type": "ipv4-addr",
+                    "value": "0.0.0.0"
+                },
+                "1": {
+                    "type": "network-traffic",
+                    "src_ref": "0",
+                    "dst_port": 0,
+                    "protocols": [
+                        "ip"
+                    ],
+                    "src_port": 0,
+                    "dst_ref": "4"
+                },
+                "2": {
+                    "type": "file",
+                    "hashes": {
+                        "SHA-1": "6232e4a0f37b583182aad75d18b3a4147a54f85b",
+                        "MD5": "7d351ff6fea9e9dc100b7deb0e03fd35"
+                    }
+                },
+                "3": {
+                    "type": "file",
+                    "name": "/etc/altprobe/altprobe.yaml"
+                },
+                "4": {
+                    "type": "ipv4-addr",
+                    "value": "0.0.0.0"
+                },
+                "5": {
+                    "type": "user-account",
+                    "user_id": "indef"
+                }
+            },
+            "x_org_alertflex": {
+                "severity": 2,
+                "agent": "alertflex",
+                "description": "Integrity checksum changed.",
+                "source": "Wazuh",
+                "type": "FILE",
+                "node": "test01",
+                "event": "550",
+                "category": "ossec, syscheck, pci_dss_11.5, hipaa_164.312.c.1, hipaa_164.312.c.2, gdpr_II_5.1.f, nist_800_53_SI.7",
+                "info": "File '/etc/altprobe/altprobe.yaml' modified\nMode: scheduled\nChanged attributes: size,mtime,md5,sha1,sha256\nSize changed from '3258' to '3271'\nOld modification time was: '1597867011', now it is '1597867055'\nOld md5sum was: '164ae63a5851feac8452dd6c64441c1e'\nNew md5sum is : '7d351ff6fea9e9dc100b7deb0e03fd35'\nOld sha1sum was: '820f749ae7f1335ae8a1bcaa6caebc57a2587bfb'\nNew sha1sum is : '6232e4a0f37b583182aad75d18b3a4147a54f85b'\nOld sha256sum was: '12bd2686446ea3020e44ce8365f9a30d74e9cfc66bd924932ca511900774eb38'\nNew sha256sum is : '40e12a0d40cc47f9732ed12a62c86f37e72200a709296f9d75be6d6c29e8f7bb'\n"
+            },
+            "first_observed": "2020-08-19T19:58:29.000Z",
+            "last_observed": "2020-08-19T19:58:29.000Z",
+            "number_observed": 1
+        }
+    ]
+}
+								</code></pre>
+							</div>
+							
+							<br/>
+							
+							<h3 class="text-left">Several examples using Alertflex STIX-Shifter adapter:</h3>
+							
+							<p>1) Check availability of Alertflex REST interface (return code: HTTP/1.1 200 OK)</p>
+							<div class="text-left codeBlock" >
+								<pre><code class="bash">
+curl -k -v GET -u admin:XXXXXXX https://192.168.1.10:8181/alertflex-ctrl/rest/stix-alerts/status
+								</code></pre>
+							</div>
+							
+							<p>2) Ping service from STIX-Shifter</p>
+							<div class="text-left codeBlock" >
+								<pre><code class="bash">
+python main.py transmit alertflex '{"host":"192.168.1.10", "port":"8181"}' '{"auth": {"username": "admin","password": "XXXXXXXX"}}' ping
+								</code></pre>
+							</div>
+							
+							<p>3) Get alerts where a file’s md5 hash is “f59d75ab1986bfe011d211e0e3687831”</p>
+							<div class="text-left codeBlock" >
+								<pre><code class="bash">
+python main.py execute alertflex alertflex'{"type": "identity", "id": "identity--3532c56d-ea72-48be-a2ad-1a53f4c9c6d3", "name": "Alertflex", "identity_class": "events"}' '{"host":“192.168.1.10", "port":"8181"}' '{"auth": {"username": "admin","password": “XXXXXXXX"}}' "[file:hashes.MD5 = 'f59d75ab1986bfe011d211e0e3687831']"
+								</code></pre>
+							</div>
+							
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	<script src="../js/jquery.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	
+	    
+  </body>
+</html>

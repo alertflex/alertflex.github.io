@@ -171,9 +171,9 @@
 </div>
 <div class="section" id="requirements">
 <h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
-<p>Altprobe was tested under Ubuntu versions 16.04/18.04 and Centos 7.
-Minimum Memory on a computer/virtual machine not less than 2GB, Hard disk not less 10GB.</p>
-<p>Before starting this procedure, please install <strong>Cnode</strong>, to get info (file <code class="docutils literal notranslate"><span class="pre">Broker.pem</span></code>, project id) which are required for installation altprobe.</p>
+<p>Altprobe was tested under Ubuntu version 16.04, 18.04 and Centos 7.
+Minimum Memory on a computer/virtual machine should be not less than 2GB, Hard disk not less 10GB.</p>
+<p>Before starting this procedure, please install <strong>Cnode</strong>, after this you need to get info (file <code class="docutils literal notranslate"><span class="pre">Broker.pem</span></code>, project id) which are required for installation altprobe (see section Post-installation of cnode).</p>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
@@ -188,11 +188,11 @@ Minimum Memory on a computer/virtual machine not less than 2GB, Hard disk not le
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>Fill in Altprobe specific parameters in <code class="docutils literal notranslate"><span class="pre">env.sh</span></code> file (as an example see file <code class="docutils literal notranslate"><span class="pre">example_env.sh</span></code>).</p></li>
+<li><p>Fill in Altprobe specific parameters in the <code class="docutils literal notranslate"><span class="pre">env.sh</span></code> file, as an example use the file <code class="docutils literal notranslate"><span class="pre">env_example.sh</span></code>. If you are planning to install Altprobe on the Cnode compute use as example file <code class="docutils literal notranslate"><span class="pre">env_local.sh</span></code>.</p></li>
 <li><p>Start installation.</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chmod</span> <span class="n">u</span><span class="o">+</span><span class="n">x</span> <span class="n">install_ubuntu16</span><span class="o">.</span><span class="n">sh</span>
-<span class="o">./</span><span class="n">install_ubuntu16</span><span class="o">.</span><span class="n">sh</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chmod</span> <span class="n">u</span><span class="o">+</span><span class="n">x</span> <span class="n">install_ubuntu</span><span class="o">.</span><span class="n">sh</span>
+<span class="o">./</span><span class="n">install_ubuntu</span><span class="o">.</span><span class="n">sh</span>
 </pre></div>
 </div>
 <ul class="simple">

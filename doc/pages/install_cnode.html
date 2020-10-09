@@ -172,10 +172,10 @@
 </div>
 <div class="section" id="requirements">
 <h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
-<p>Cnode was tested under Ubuntu versions 16.04/18.04 and Centos 7.
-Minimum Memory on a computer/virtual machine not less than 4GB, Hard disk not less 20GB.
-The cnode should be reachable for remote components of the solution via hostname (see file /etc/hosts or DNS service).
-Next TCP/UDP ports should be open for interaction between solution components and users.</p>
+<p>Cnode was tested under Ubuntu version 16.04, 18.04 and Centos 7.
+Minimum Memory on a computer/virtual machine for installation of Cnode should be not less than 4GB (8GB and more recommended), Hard disk not less 20GB.
+Also this computer should be reachable for remote components of the solution via hostname (see file /etc/hosts or DNS service).
+Next TCP/UDP ports should be open for interaction between solution components and users:</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 30%" />
@@ -223,11 +223,11 @@ Next TCP/UDP ports should be open for interaction between solution components an
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>Fill in project-specific parameters in file <code class="docutils literal notranslate"><span class="pre">env.sh</span></code>, as an example see file <code class="docutils literal notranslate"><span class="pre">example_env.sh</span></code></p></li>
+<li><p>Fill in project-specific parameters in file <code class="docutils literal notranslate"><span class="pre">env.sh</span></code>, as an example you can use file <code class="docutils literal notranslate"><span class="pre">example_env.sh</span></code></p></li>
 <li><p>Start installation</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chmod</span> <span class="n">u</span><span class="o">+</span><span class="n">x</span> <span class="n">install_ubuntu16</span><span class="o">.</span><span class="n">sh</span>
-<span class="o">./</span><span class="n">install_ubuntu16</span><span class="o">.</span><span class="n">sh</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chmod</span> <span class="n">u</span><span class="o">+</span><span class="n">x</span> <span class="n">install_ubuntu</span><span class="o">.</span><span class="n">sh</span>
+<span class="o">./</span><span class="n">install_ubuntu</span><span class="o">.</span><span class="n">sh</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -244,7 +244,11 @@ Next TCP/UDP ports should be open for interaction between solution components an
 </ul>
 <img alt="../_images/main-page.png" src="../_images/main-page.png" />
 <ul class="simple">
-<li><p>In Alertflex console select “Settings” and download SSL certificate for Alertlex collector (altprobe).</p></li>
+<li><p>The Alertflex management console is provided as a binary/executable file. Before starting to use the Management console you need to confirm the EULA (end-user license agreement). For this, please, open the “Settings/Project/License” panel, read EULA and select checkbox.</p></li>
+</ul>
+<img alt="../_images/alertflex-lic.png" src="../_images/alertflex-lic.png" />
+<ul class="simple">
+<li><p>In Alertflex console select “Settings/Project” and download SSL certificate for Alertlex collector (altprobe).</p></li>
 </ul>
 <img alt="../_images/project.png" src="../_images/project.png" />
 <ul class="simple">
@@ -252,10 +256,15 @@ Next TCP/UDP ports should be open for interaction between solution components an
 </ul>
 <img alt="../_images/project-id.png" src="../_images/project-id.png" />
 <ul class="simple">
-<li><p>For enabling of MISP feeds, login to MISP admin console  (default user <code class="docutils literal notranslate"><span class="pre">admin&#64;admin.test</span></code>, password <code class="docutils literal notranslate"><span class="pre">admin</span></code>).</p></li>
+<li><p>For enabling of MISP feeds, login to MISP admin console via landing/main page (default user <code class="docutils literal notranslate"><span class="pre">admin&#64;admin.test</span></code>, password <code class="docutils literal notranslate"><span class="pre">admin</span></code>).</p></li>
 </ul>
 <img alt="../_images/misp-feeds.png" src="../_images/misp-feeds.png" />
 <ul class="simple">
+<li><p>In Alertflex console open “Settings/Integrations/MISP” panel and select checkbox “Enable IOC check”</p></li>
+</ul>
+<img alt="../_images/misp-config.png" src="../_images/misp-config.png" />
+<ul class="simple">
+<li><p>Perform of reboot Linux system or restart Payara server (see paragraph Troubleshooting in section “Configuration of Cnode”, how to restart Payara AS)</p></li>
 <li><p>Now, Cnode should be ready for service and you can start the installation of collectors (altprobe)</p></li>
 </ul>
 </div>

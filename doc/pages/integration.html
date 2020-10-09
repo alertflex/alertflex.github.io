@@ -96,7 +96,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Integrations</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#open-cybersecurity-alliance-ecosystem-stix-shifter">Open Cybersecurity Alliance ecosystem (STIX-shifter)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#send-alerts-and-netflow-to-graylog">Send alerts and Netflow to Graylog</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#send-alerts-and-netflow-to-elasticstack-open-distro-via-logstash">Send alerts and Netflow to ElasticStack/Open Distro via Logstash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#send-alerts-and-netflow-to-elasticstack-opendistro">Send alerts and Netflow to ElasticStack/OpenDistro</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#enable-receive-metrics-from-alertflex-in-prometheus-grafana">Enable receive metrics from Alertflex in Prometheus/Grafana</a></li>
 </ul>
 </li>
@@ -215,41 +215,37 @@
 <div class="section" id="send-alerts-and-netflow-to-graylog">
 <h2>Send alerts and Netflow to Graylog<a class="headerlink" href="#send-alerts-and-netflow-to-graylog" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>In Alertflex console select “Settings/Log server” and add IP/host address and port of Graylog server. Select checkbox <code class="docutils literal notranslate"><span class="pre">send</span> <span class="pre">Netflow</span></code> if you want send Netflow records from Suricata</p></li>
+<li><p>In Alertflex console select “Settings/Integrations/Graylog” and add IP/host address and port of Graylog server.</p></li>
 </ul>
 <img alt="../_images/graylog-config.png" src="../_images/graylog-config.png" />
+<ul class="simple">
+<li><p>Select checkbox <code class="docutils literal notranslate"><span class="pre">send</span> <span class="pre">Netflow</span></code> in “Settings/Project” if you want send Netflow records from Suricata</p></li>
+</ul>
+<img alt="../_images/project-netflow.png" src="../_images/project-netflow.png" />
 <ul class="simple">
 <li><p>In Graylog console select “System/Inputs” and add <code class="docutils literal notranslate"><span class="pre">GELF</span> <span class="pre">UDP</span></code> input</p></li>
 </ul>
 <img alt="../_images/graylog-input.png" src="../_images/graylog-input.png" />
+<p>Note: Performs reboot of linux system or payara server is required after these settings</p>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
 </div>
-<div class="section" id="send-alerts-and-netflow-to-elasticstack-open-distro-via-logstash">
-<h2>Send alerts and Netflow to ElasticStack/Open Distro via Logstash<a class="headerlink" href="#send-alerts-and-netflow-to-elasticstack-open-distro-via-logstash" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="send-alerts-and-netflow-to-elasticstack-opendistro">
+<h2>Send alerts and Netflow to ElasticStack/OpenDistro<a class="headerlink" href="#send-alerts-and-netflow-to-elasticstack-opendistro" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Configure LogStash receive events from Alertflex via <code class="docutils literal notranslate"><span class="pre">GELF</span> <span class="pre">UDP</span></code>:</p></li>
+<li><p>In Alertflex console select “Settings/Integrations/Elasticsearch” and add parameters according to your configuration of Elasticsearch</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">input</span> <span class="p">{</span>
-        <span class="n">gelf</span> <span class="p">{</span>
-                <span class="n">host</span> <span class="o">=&gt;</span> <span class="s2">&quot;0.0.0.0&quot;</span>
-                <span class="nb">type</span> <span class="o">=&gt;</span> <span class="s2">&quot;alertflex&quot;</span>
-        <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="n">output</span> <span class="p">{</span>
-        <span class="n">elasticsearch</span> <span class="p">{</span>
-                <span class="n">hosts</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s2">&quot;https://localhost:9200&quot;</span><span class="p">]</span>
-                <span class="n">index</span> <span class="o">=&gt;</span> <span class="s2">&quot;logstash&quot;</span>
-                <span class="n">user</span> <span class="o">=&gt;</span> <span class="s2">&quot;logstash&quot;</span>
-                <span class="n">password</span> <span class="o">=&gt;</span> <span class="s2">&quot;logstash&quot;</span>
-                <span class="n">ssl_certificate_verification</span> <span class="o">=&gt;</span> <span class="n">false</span>
-                <span class="n">ilm_enabled</span> <span class="o">=&gt;</span> <span class="n">false</span>
-        <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
+<img alt="../_images/elastic-config.png" src="../_images/elastic-config.png" />
+<ul class="simple">
+<li><p>Select checkbox <code class="docutils literal notranslate"><span class="pre">send</span> <span class="pre">Netflow</span></code> in “Settings/Project” if you want send Netflow records from Suricata</p></li>
+</ul>
+<img alt="../_images/project-netflow.png" src="../_images/project-netflow.png" />
+<ul class="simple">
+<li><p>For view events from Alertflex select index “alertflex*” in Kibana UI</p></li>
+</ul>
+<img alt="../_images/elasticsearch.png" src="../_images/elasticsearch.png" />
+<p>Note: Performs reboot of linux system or payara server is required after these settings</p>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>

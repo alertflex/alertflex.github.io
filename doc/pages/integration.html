@@ -95,7 +95,6 @@
 <li class="toctree-l1"><a class="reference internal" href="config_altprobe.html">Configuration of Altprobe</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Integrations</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#open-cybersecurity-alliance-ecosystem-stix-shifter">Open Cybersecurity Alliance ecosystem (STIX-shifter)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#send-alerts-and-netflow-to-graylog">Send alerts and Netflow to Graylog</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#send-alerts-and-netflow-to-elasticstack-opendistro">Send alerts and Netflow to ElasticStack/OpenDistro</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#enable-receive-metrics-from-alertflex-in-prometheus-grafana">Enable receive metrics from Alertflex in Prometheus/Grafana</a></li>
 </ul>
@@ -208,25 +207,6 @@
 <span class="s2">&quot;[x_org_alertflex:type = &#39;HOST&#39;] START t&#39;2020-06-09T00:00:00Z&#39; STOP t&#39;2020-06-09T20:11:11Z&#39;&quot;</span>
 </pre></div>
 </div>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
-</div>
-<div class="section" id="send-alerts-and-netflow-to-graylog">
-<h2>Send alerts and Netflow to Graylog<a class="headerlink" href="#send-alerts-and-netflow-to-graylog" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>In Alertflex console select “Settings/Integrations/Log Management” and add IP/host address and port of Graylog server.</p></li>
-</ul>
-<img alt="../_images/graylog-config.png" src="../_images/graylog-config.png" />
-<ul class="simple">
-<li><p>Select checkbox <code class="docutils literal notranslate"><span class="pre">send</span> <span class="pre">Netflow</span></code> in “Settings/Project/Parameters” if you want send Netflow records from Suricata</p></li>
-</ul>
-<img alt="../_images/project-netflow.png" src="../_images/project-netflow.png" />
-<ul class="simple">
-<li><p>In Graylog console select “System/Inputs” and add <code class="docutils literal notranslate"><span class="pre">GELF</span> <span class="pre">UDP</span></code> input</p></li>
-</ul>
-<img alt="../_images/graylog-input.png" src="../_images/graylog-input.png" />
-<p>Note: Performs reboot of linux system or payara server is required after these settings</p>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>

@@ -92,7 +92,7 @@
 					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-check-circle-o"></i> The Collector immediately sends high priority events (alerts) to the central node.</p></li>
 					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-check-circle-o"></i> For implementing the “Anti-flooding” algorithm which prevents large bursts of events on the central node side, the Collector sends to Controller large size info (NetFlow, statistics, reports) inside of pre-accumulated and compressed data blocks.</p></li>
 					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-check-circle-o"></i> The Controller saves alerts in Alertflex database (MySQL).</p></li>
-					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-check-circle-o"></i> The Controller can redirect alerts and netflow to Graylog, ElasticStack, OpenDistro log management platforms.</p></li> 
+					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-check-circle-o"></i> The Controller can redirect alerts and netflow to ElasticStack, OpenDistro log management platforms.</p></li> 
 					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-check-circle-o"></i> Provides a REST API and STIX-shifter interface for access to alerts.</p></li> 
 					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-check-circle-o"></i> The web management console provides various reports and web-forms for alerts search.</p></li> 
 				</ul>
@@ -124,7 +124,7 @@
 				<ul class="list-group list-group-flush text-left">
 					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-check-circle-o"></i> The Alertlex performs reputation checks for IP addresses, DNS records, MD5 and SHA1 hashes of files. Creates an alert, in case of suspicious data has been found.</p></li>
 					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-check-circle-o"></i> Performs analysis of different reports (<strong>OpenSCAP, Wazuh SCA, Docker Bench for Security, Trivy</strong>, etc). Generates alert if a <strong>new vulnerability, misconfigurations, processes, packages or user</strong> has been found.</p></li>
-					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-check-circle-o"></i> For advanced WEB analytics can be used Grafana that connected with Alertflex Database (MySQL).</p></li>
+					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-check-circle-o"></i> For advanced WEB analytics can be used Grafana that connected with Alertflex Database (MySQL) or Kibana.</p></li>
 				</ul>
 			</div>
 		</div>
@@ -153,7 +153,6 @@
 				</div>
 				<ul class="list-group list-group-flush text-left">
 					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-check-circle-o"></i> The Alertflex components recognize the Wazuh HIDS agent's namespace inside of the Suricata NIDS alerts and Netflow events. It allows you to perform a correlation of security events for Network and Endpoints.</p></li>
-					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-check-circle-o"></i> Additionally, Alertflex can recognize of fields process id and process name inside events of PacketBeat (ElasticStack). Matching these events with alerts from Suricata IDS gives you the possibility to trace of the suspicious network session from NIDS to an application/process on the host.</li>
 				</ul>
 			</div>
 		</div>
@@ -176,7 +175,7 @@
 							</a>
 						</div>
 						<div class="col-sm-10 article">    
-							<p>Alertflex works as a security orchestrator for several third-party applications/cybersecurity platforms. The system is able to integrate into one solution the next open source products: OWASP ZAP, Nessus Essentials, Nmap, MISP, Cuckoo Sandbox, Graylog, ElasticStack, and more. Most of the automation operations can be implemented as a Playbook, a set of jobs that run by Alertflex according to the Flow ID of the job. Every Playbook may be run automatically through a time interval or as a response to the security event/alert.</p>
+							<p>Alertflex works as a security orchestrator for several third-party applications/cybersecurity platforms. The system is able to integrate into one solution the next open source products: OWASP ZAP, Nessus Essentials, Nmap, MISP, Cuckoo Sandbox, ElasticStack, and more. Most of the automation operations can be implemented as a Playbook, a set of jobs that run by Alertflex according to the Flow ID of the job. Every Playbook may be run automatically through a time interval or as a response to the security event/alert.</p>
 						</div>
 					</div>
 				</div>

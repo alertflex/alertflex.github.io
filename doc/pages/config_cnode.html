@@ -94,6 +94,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#filtering-policies">Filtering policies</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#central-management-of-ids-configs">Central management of IDS configs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#central-management-of-ids-rules">Central management of IDS rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#increase-the-application-server-jvm-heap-size">Increase the Application Server JVM heap size</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
 </ul>
 </li>
@@ -228,6 +229,23 @@
 <h2>Central management of IDS rules<a class="headerlink" href="#central-management-of-ids-rules" title="Permalink to this headline">¶</a></h2>
 <p>For operations with IDS rules via Alertflex console, open web-form <strong>IDS/config</strong></p>
 <img alt="../_images/ids-rules.png" src="../_images/ids-rules.png" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="increase-the-application-server-jvm-heap-size">
+<h2>Increase the Application Server JVM heap size<a class="headerlink" href="#increase-the-application-server-jvm-heap-size" title="Permalink to this headline">¶</a></h2>
+<p>By default, Payara AS uses 512 MB of memory for JVM heap.
+This size of memory isn’t enough for the production deployment of Alertflex.
+If your computer/virtual machine has more than 4 Gb memory, you can change JVM heap size
+via Payara AS admin console or by commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">asadmin</span>
+<span class="n">create</span><span class="o">-</span><span class="n">jvm</span><span class="o">-</span><span class="n">options</span> <span class="s1">&#39;-Xms3g&#39;</span>
+<span class="n">create</span><span class="o">-</span><span class="n">jvm</span><span class="o">-</span><span class="n">options</span> <span class="s1">&#39;-Xmx3g&#39;</span>
+<span class="n">delete</span><span class="o">-</span><span class="n">jvm</span><span class="o">-</span><span class="n">options</span> <span class="s1">&#39;-Xmx512m&#39;</span>
+<span class="n">restart</span><span class="o">-</span><span class="n">domain</span> <span class="n">domain1</span>
+</pre></div>
+</div>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>

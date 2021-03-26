@@ -15,7 +15,7 @@
     
 	<title>Alertflex | Simplify and Automate Cybersecurity Monitoring</title>
 	
-	<meta name="description" content="Alertflex is a free, open source security solution for automation, orchestration, threat detection and continuous monitoring.">
+	<meta name="description" content="Alertflex is an open source security solution for automation, continuous monitoring, orchestration, threat detection and response.">
 	
 	<meta name="google-site-verification" content="TsbkqUA159z1EBgm6fBO6z3LdzvojGciFB3yHm2SWEY" />
 	
@@ -72,7 +72,7 @@
 		
 			<div class="panel price panel-green">
 				<div class="panel-heading arrow_box text-center">
-				<h2 style="color:#fff;">Alerts filtering, prioritization and visualization</h2>
+				<h2 style="color:#fff;">Alerts filtering, prioritization, visualization</h2>
 				</div>
 				<div class="panel-body">
 					<div class="row">
@@ -82,49 +82,19 @@
 							</a>
 						</div>
 						<div class="col-sm-10 article">    
-							<p>The Alertflex implements security events management functions for a distributed hub of security sensors (<strong>Suricata NIDS, Wazuh HIDS, Falco CRS</strong>). It is based on the next modern levels: Collection (Alertflex collector), Streaming (ActiveMQ), Analysis (Alertflex controller), Storage (MySQL), Access (Alertflex controller and console).</p>
+							<p>The Alertflex implements security events management functions for a distributed hub of security sensors ( Suricata NIDS, Wazuh HIDS, Falco CRS ). It is based on the next levels: Collection (Alertflex collector), Streaming (ActiveMQ), Analysis (Alertflex controller), Storage (MySQL), Access (Alertflex controller and management console).</p>
 						</div>
 					</div>
 				</div>
 				<ul class="list-group list-group-flush text-left">
-					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-check-circle-o"></i> Alertflex Collector (Altprobe) receives through the Redis or directly from log files IDS events from Suricata NIDS, Wazuh HIDS, Modsecurity WAF, Falco CRS in JSON format.</p></li>
-					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-check-circle-o"></i> Based on filtering policies, Collector extracts high priority events, makes aggregation and normalization for them. It allows to simplify the management of alerts, reduces noise from minor events.</p></li>
-					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-check-circle-o"></i> The Collector immediately sends high priority events (alerts) to the central node.</p></li>
-					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-check-circle-o"></i> For implementing the “Anti-flooding” algorithm which prevents large bursts of events on the central node side, the Collector sends to Controller large size info (NetFlow, statistics, reports) inside of pre-accumulated and compressed data blocks.</p></li>
-					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-check-circle-o"></i> The Controller saves alerts in Alertflex database (MySQL).</p></li>
-					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-check-circle-o"></i> The Controller can redirect alerts and netflow to ElasticStack, OpenDistro log management platforms.</p></li> 
-					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-check-circle-o"></i> Provides a REST API and STIX-shifter interface for access to alerts.</p></li> 
-					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-check-circle-o"></i> The web management console provides various reports and web-forms for alerts search.</p></li> 
-				</ul>
-			</div>
-		</div>
-		
-    </div> <!-- /.container -->
-	
-	<div id="detection" class="container" style="padding-bottom:30px; padding-top:30px; ">
-			
-		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-		
-			<div class="panel price panel-green">
-				<div class="panel-heading arrow_box text-center">
-				<h2 style="color:#fff;">Detection intrusions, vulnerabilities and misconfigurations</h2>
-				</div>
-				<div class="panel-body">
-					<div class="row">
-						<div class="col-sm-2">
-							<a href="#">
-								<img src="img/icons/analytics.png" class="rounded mx-auto d-block">
-							</a>
-						</div>
-						<div class="col-sm-10 article">    
-							<p>For <strong>Threat Detection</strong>, the Alertflex uses Controller  based integration with the <strong>Cyber Threat Intelligence platform MISP</strong>. For finding vulnerabilities and assets misconfigurations, Alertflex performs a comprehensive analysis of different reports from <strong>security sensors and remote vulnerability scanners</strong>.</p>
-						</div>
-					</div>
-				</div>
-				<ul class="list-group list-group-flush text-left">
-					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-check-circle-o"></i> The Alertlex performs reputation checks for IP addresses, DNS records, MD5 and SHA1 hashes of files. Creates an alert, in case of suspicious data has been found.</p></li>
-					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-check-circle-o"></i> Performs analysis of different reports (<strong>OpenSCAP, Wazuh SCA, Docker Bench for Security, Trivy</strong>, etc). Generates alert if a <strong>new vulnerability, misconfigurations, processes, packages or user</strong> has been found.</p></li>
-					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-check-circle-o"></i> For advanced WEB analytics can be used Grafana that connected with Alertflex Database (MySQL) or Kibana.</p></li>
+					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-caret-right"></i> Alertflex Collector (Altprobe) receives security events through the Redis or directly from log files of Suricata NIDS, Wazuh HIDS, Falco CRS.</p></li>
+					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-caret-right"></i> The Collector makes normalization and applies filter policies for every security event. Based on policies, the Collector extracts certain events, makes aggregation for them, also can omit an event if it marked as suppressed in the filtering policy. It allows to simplify the management of alerts, reduces noise from minor events.</p></li>
+					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-caret-right"></i> After pre-processing, the Collector sends events (alerts) to the central node.</p></li>
+					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-caret-right"></i> The Collector can retrieve from security sensors additional data such as NetFlow, vulnerabilities, misconfigurations reports that normally consist of plenty of JSON records. For implementing the “Anti-flooding” algorithm which prevents large bursts of events on the central node, the Collector pre-accumulates and compresses large size data before sends it to the Controller.</p></li>
+					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-caret-right"></i> After receiving security events on the Central node side through the ActiveMQ message broker, the Controller takes care of processing these events. The Controller tries to match every alert with the existing Response profile and make prioritization of alert according to user manageable configurations table. Finally, the Controller saves the alert in the Alertflex database (MySQL). Also, The Controller can redirect alerts and Netflow to  Log management platforms OpenDistro ElasticStack. Implements a REST API and STIX-shifter interface for external access to alerts.</p></li>
+					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-caret-right"></i> In case the security alert is matched to a certain Response profile, the Controller sends the alert context to the Management console to perform a Response action such as user notification or/and invoke of automation playbook.</p></li> 
+					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-caret-right"></i> The Management console provides various reports and web-forms for visualization alerts, cyber threats, vulnerabilities, and misconfigurations. Additionally, it allows remote management of Collectors' filtering policies and IDS sensors rules.</p></li> 
+				    <li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-caret-right"></i> For advanced WEB analytics can be used Grafana connected to Alertflex Database (MySQL).</p></li>
 				</ul>
 			</div>
 		</div>
@@ -137,7 +107,7 @@
 		
 			<div class="panel price panel-green">
 				<div class="panel-heading arrow_box text-center">
-				<h2 style="color:#fff;">Integrated analysis network, containers and hosts</h2>
+				<h2 style="color:#fff;">Integrated analysis for containers, endpoints, network</h2>
 				</div>
 				<div class="panel-body">
 					<div class="row">
@@ -147,12 +117,42 @@
 							</a>
 						</div>
 						<div class="col-sm-10 article">    
-							<p>Putting together security events from Falco CRS (Container Runtime Security), Wazuh (Host IDS) and Suricata (Network IDS) provides an integrated analysis of network, containers, and hosts.</p>
+							<p>Putting together in a union timeline of security events from Falco CRS (Container Runtime Security), Wazuh (Host IDS/EDR) and Suricata (Network IDS) make possible an integrated analysis of network, containers and endpoints.</p>
 						</div>
 					</div>
 				</div>
 				<ul class="list-group list-group-flush text-left">
-					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-check-circle-o"></i> The Alertflex components recognize the Wazuh HIDS agent's namespace inside of the Suricata NIDS alerts and Netflow events. It allows you to perform a correlation of security events for Network and Endpoints.</p></li>
+					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-caret-right"></i> The Alertflex components recognize the Wazuh HIDS agents' namespace inside of the Suricata NIDS alerts and Netflow events. It allows performing a correlation of security events from different sources Networks and Endpoints.</p></li>
+					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-caret-right"></i> The Alertflex Collector can manage Wazuh agents and Docker containers via local API, retrieve a list of agents, containers and match it with the defined hosts and network segments.</p></li>
+				</ul>
+			</div>
+		</div>
+		
+    </div> <!-- /.container -->
+	
+	<div id="detection" class="container" style="padding-bottom:30px; padding-top:30px; ">
+			
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		
+			<div class="panel price panel-green">
+				<div class="panel-heading arrow_box text-center">
+				<h2 style="color:#fff;">Reporting cyber threats, misconfigurations, vulnerabilities</h2>
+				</div>
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-sm-2">
+							<a href="#">
+								<img src="img/icons/analytics.png" class="rounded mx-auto d-block">
+							</a>
+						</div>
+						<div class="col-sm-10 article">    
+							<p>For Threat Detection, Alertflex uses Controller based integration with the Cyber Threat Intelligence platform MISP. For finding vulnerabilities and asset misconfigurations, Alertflex performs a comprehensive analysis of different reports from sensors and remote vulnerability scanners.</p>
+						</div>
+					</div>
+				</div>
+				<ul class="list-group list-group-flush text-left">
+					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-caret-right"></i> Based on the MISP IOC database, the Alertlex performs a real-time reputation check for IP addresses, DNS records, MD5, SHA1 hashes of files. Creates an alert, in case of suspicious data has been found.</p></li>
+					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-caret-right"></i> Performs analysis of different reports for endpoints, containers, networks from the integrated third-party tools: Wazuh SCA, Wazuh vulnerability-detector, OWASP ZAP Proxy, Nmap, Docker-bench, Kube-bench, Snyk, Trivy. Generates alert if a new vulnerability or misconfiguration has been found.</p></li>
 				</ul>
 			</div>
 		</div>
@@ -175,15 +175,18 @@
 							</a>
 						</div>
 						<div class="col-sm-10 article">    
-							<p>Alertflex works as a security orchestrator for several third-party applications/cybersecurity platforms. The system is able to integrate into one solution the next open source products: OWASP ZAP, Nmap, MISP, Cuckoo Sandbox, ElasticStack, and more. Most of the automation operations can be implemented as a Playbook, a set of jobs that run by Alertflex according to the Flow ID of the job. Every Playbook may be run automatically through a time interval or as a response to the security event/alert.</p>
+							<p>Alertflex works as an orchestrator for several third-party applications and performs automation for security operations. Most of the automation operations can be implemented as a Playbook, a set of jobs running by Alertflex according to the Flow ID of the job. Every Playbook may be run automatically through a time interval or as a response to the security alert. At this moment Alertflex playbooks support the next jobs:</p>
 						</div>
 					</div>
 				</div>
 				<ul class="list-group list-group-flush text-left">
-					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-check-circle-o"></i> Scanning of remote files in Malware Analysis Sandbox (Cuckoo, Hybrid Analysis, VMRay)</p></li>
-					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-check-circle-o"></i> IDS centralized management for rules, configs, filtering policies, IP address blocking lists.</p></li>
-					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-check-circle-o"></i> Integrates with DevSecOps (Trivy, Kube-bench, OWASP ZAP)</p></li>
-					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-check-circle-o"></i> Automatically run remote scripts via SSH and SFTP protocols.</p></li>
+					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-caret-right"></i> Active response - call of remote operations as a response to the alert. It can be Wazuh active response, IP address Deny operation for Suricata IPS, Docker API request (stop or pause container), call AWS Lambda server-less functions.</p></li>
+					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-caret-right"></i> Scan of files in Malware Analysis Sandbox (Cuckoo, Hybrid Analysis, VMRay)</p></li>
+					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-caret-right"></i> Periodical or event trigger invoke for IDS rules update.</p></li>
+					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-caret-right"></i> Runs of remote scripts via SSH protocol.</p></li>
+					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-caret-right"></i> Copies or moves of remote files via SFTP protocol.</p></li>
+					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-caret-right"></i> Automatical run of third-party tools to scan assets for finding vulnerabilities and misconfigurations.</p></li>
+				    <li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-caret-right"></i> Scheduled email reports generation of Alertflex monitoring statistics.</p></li>
 				</ul>
 			</div>
 		</div>

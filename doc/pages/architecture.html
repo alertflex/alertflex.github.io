@@ -173,9 +173,11 @@
 </div>
 <div class="section" id="high-level-design">
 <h2>High-level design<a class="headerlink" href="#high-level-design" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">Alertflex</span> <span class="pre">project</span></code> is a continuous security monitoring solution designed for use in Hybrid Clouds (on-premises and cloud-based IT infrastructure).
-By monitoring events near real-time from well-known open-source security applications, Alertflex gives companies end-to-end security visibility,
-implements CTI, EDR, NTA and SOAR technology stack.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Alertflex</span> <span class="pre">project</span></code> Alertflex project is an automation, continuous monitoring, threat detection and response solution.
+The Alertflex works as a Security Event Manager with SOAR functionality for a distributed grid of security sensors and scanners.</p>
+<p>Solution is designed for use in Hybrid IT infrastructure (on-premises and cloud-based), provides an orchestrator
+and a single pane of glass for more than 30 products (mostly free open-source software),
+monitors different types of platforms: Windows, Linux, Docker, Kubernetes, Amazon AWS.</p>
 <img alt="../_images/hld-arch.png" src="../_images/hld-arch.png" />
 <div class="line-block">
 <div class="line"><br /></div>
@@ -183,14 +185,13 @@ implements CTI, EDR, NTA and SOAR technology stack.</p>
 </div>
 <div class="section" id="low-level-design">
 <h2>Low-level design<a class="headerlink" href="#low-level-design" title="Permalink to this headline">¶</a></h2>
-<p>The Alertflex is based on five levels of security event management technology: Collection, Streaming, Analysis, Storage, Access.
-For working in a distributed environment of Hybrid Clouds, the solution consists of separate software components Collector, Controller, Management Console.
-Collector (Altprobe) is placed in the network domain where security sensors are installed (Container Runtime Security, Host IDS, File Integrity Monitor,
-Network IDS). Together with security sensors, Collector logically forms the Collector node.
-Alertflex Controller and Management Console make up the central node. The central node could be placed inside of monitored IT infrastructure or outside.
-To exchange messages between the Collector node and the Central node, the ActiveMQ or Amazon MQ message broker is used.
-The security of connections between nodes is implemented on the basis of support for SSL / TLS protocols built into ActiveMQ.
-The solution can be easily scaled from the stand-alone appliance configuration to the distributed configuration for multi-clouds.</p>
+<p>TThe Alertflex implements security events management functions for a distributed hub of security sensors ( Suricata NIDS, Wazuh HIDS, Falco CRS ).
+It is based on the next levels: Collection (Alertflex collector), Streaming (ActiveMQ), Analysis (Alertflex controller), Storage (MySQL),
+Access (Alertflex controller and management console).</p>
+<p>For working inside of Hybrid IT environment, the solution consists of distributed software components Collector, Controller, Management Console.
+Alertflex Controller and Management Console build up the Central node, which can be placed inside of monitored IT infrastructure or outside.</p>
+<p>Alertflex Collector (Altprobe) is placed in the network segment where security sensors are installed (Container Runtime Security,
+Host IDS, File Integrity Monitor, The Docker Bench for Security, Network IDS). Together with security sensors and scanners, Collector logically forms the Remote node.</p>
 <img alt="../_images/lld-arch.png" src="../_images/lld-arch.png" />
 <div class="line-block">
 <div class="line"><br /></div>
@@ -209,10 +210,10 @@ of third-party components and microservices architecture Alertflex applications.
 </div>
 <div class="section" id="collector-node">
 <h2>Collector node<a class="headerlink" href="#collector-node" title="Permalink to this headline">¶</a></h2>
-<p>Collector node is based on the micro-segmentation model. It can include several alertflex collectors (Altprobe) and security sensors/IDS.
+<p>Collector node is based on the micro-segmentation model. It can include several alertflex collectors (Altprobe), security sensors/IDS and scanners.
 The minimum configuration of such a node includes one installed collector on a computer/virtual machine in the node segment.
-The configuration can be expanded by installation several Alertflex collectors on different computers/VM inside of the node segment.
-It allows connecting several security sensors inside one network segment controlled by the node and using a single network and agents namespace.
+The configuration can be expanded by installation several Alertflex collectors on different computers/VM inside of the one node segment.
+It allows to connect several security sensors and scanners inside one network segment controlled by the node and to use a union network and agents namespace.
 Alertflex collector can directly read security events from IDS logs or use Redis server for receiving events from IDS which are installed on other hosts.
 See an example of such configuration below:</p>
 <img alt="../_images/collector-node.png" src="../_images/collector-node.png" />
@@ -243,7 +244,7 @@ See an example of such configuration below:</p>
   <div role="contentinfo">
     <p>
         
-        &copy; Copyright 2020, alertflex.org
+        &copy; Copyright 2021, alertflex.org
 
     </p>
   </div>

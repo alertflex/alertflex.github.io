@@ -72,7 +72,7 @@
 		
 			<div class="panel price panel-green">
 				<div class="panel-heading arrow_box text-center">
-				<h2 style="color:#fff;">Alerts filtering, prioritization, visualization</h2>
+				<h2 style="color:#fff;">Alert Triage - filtering, prioritization, validation</h2>
 				</div>
 				<div class="panel-body">
 					<div class="row">
@@ -92,6 +92,7 @@
 					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-caret-right"></i> After pre-processing, the Collector sends events (alerts) to the central node.</p></li>
 					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-caret-right"></i> The Collector can retrieve from security sensors additional data such as NetFlow, vulnerabilities, misconfigurations reports that normally consist of plenty of JSON records. For implementing the “Anti-flooding” algorithm which prevents large bursts of events on the central node, the Collector pre-accumulates and compresses large size data before sends it to the Controller.</p></li>
 					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-caret-right"></i> After receiving security events on the Central node side through the ActiveMQ message broker, the Controller takes care of processing these events. The Controller tries to match every alert with the existing Response profile and make prioritization of alert according to user manageable configurations table. Finally, the Controller saves the alert in the Alertflex database (MySQL). Also, The Controller can redirect alerts and Netflow to  Log management platforms OpenDistro ElasticStack. Implements a REST API and STIX-shifter interface for external access to alerts.</p></li>
+					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-caret-right"></i> Alertflex integrates with the OpenDistro Anomaly Detection feature (Random Cut Forest AI algorithm), you can configure automated response for an anomaly detected in security events rate.</p></li> 
 					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-caret-right"></i> In case the security alert is matched to a certain Response profile, the Controller sends the alert context to the Management console to perform a Response action such as user notification or/and invoke of automation playbook.</p></li> 
 					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-caret-right"></i> The Management console provides various reports and web-forms for visualization alerts, cyber threats, vulnerabilities, and misconfigurations. Additionally, it allows remote management of Collectors' filtering policies and IDS sensors rules.</p></li> 
 				    <li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-caret-right"></i> Additionally, for Web visualization of analytics can be used Grafana connected to Alertflex Database (MySQL) or Kibana from OpenDistro.</p></li>
@@ -107,7 +108,7 @@
 		
 			<div class="panel price panel-green">
 				<div class="panel-heading arrow_box text-center">
-				<h2 style="color:#fff;">Detection of threats, misconfigurations, vulnerabilities</h2>
+				<h2 style="color:#fff;">Detection of intrusions, misconfigurations, vulnerabilities</h2>
 				</div>
 				<div class="panel-body">
 					<div class="row">
@@ -123,7 +124,7 @@
 				</div>
 				<ul class="list-group list-group-flush text-left">
 					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-caret-right"></i> Based on the MISP IOC database, the Alertlex performs a real-time reputation check for IP addresses, DNS records, MD5, SHA1 hashes of files. Creates an alert, in case of suspicious data has been found.</p></li>
-					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-caret-right"></i> Performs analysis of different reports for endpoints, containers, networks from the integrated third-party tools: Amazon Inspector, Docker-bench, Kube-bench, Kube-hunter, OWASP ZAP Proxy, Nmap, Snyk, Trivy, Wazuh SCA, Wazuh vulnerability-detector. Generates alert if a new vulnerability or misconfiguration has been found.</p></li>
+					<li class="list-group-item h2-emul"><p><i style="color: #68a1b2;" class="fa fa-caret-right"></i> Performs analysis of different reports for endpoints, containers, networks from the integrated third-party tools: Amazon Inspector, Docker-bench, Kube-bench, Kube-hunter, OWASP ZAP Proxy, Nmap, Snyk, Trivy, Wazuh SCA, Wazuh Vulnerability-detector. Generates alert if a new vulnerability or misconfiguration has been found.</p></li>
 				</ul>
 			</div>
 		</div>
@@ -136,7 +137,7 @@
 		
 			<div class="panel price panel-green">
 				<div class="panel-heading arrow_box text-center">
-				<h2 style="color:#fff;">Integrated analysis of containers, endpoints, network</h2>
+				<h2 style="color:#fff;">Integrated analysis for containers, endpoints, network</h2>
 				</div>
 				<div class="panel-body">
 					<div class="row">
